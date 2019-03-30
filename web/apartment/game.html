@@ -102,17 +102,21 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<div id="store-area" hidden><tw-storydata name="Mystery Box: Crawlspace -0" startnode="1" creator="Twine" creator-version="2.2.1" ifid="C17CEEE5-DBE0-4F69-B0D9-0BF437F23E46" zoom="1" format="SugarCube" format-version="2.21.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">html
-{
-  font-family: "Courier", courier, monospace;
-}
-
-#title, #menu, #ui-bar-history {
+	<div id="store-area" hidden><tw-storydata name="Mystery Box: Crawlspace -0" startnode="1" creator="Twine" creator-version="2.2.1" ifid="C17CEEE5-DBE0-4F69-B0D9-0BF437F23E46" zoom="1" format="SugarCube" format-version="2.21.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#title, #menu, #ui-bar-history {
 	display: none;
 }
 
 #ui-bar-body>:not(:first-child) {
     margin-top: 0;
+}
+
+#ui-bar {
+	background-color: #1a1a1a;
+}
+
+#ui-bar-toggle {
+	border-right: 1px solid #444;
+	right: 0px;
 }
 
 #story-caption {
@@ -123,24 +127,157 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 	/* Style properties for <a> elements within the #story-caption element. */
 }
 
+#passage-questions {
+  text-align: center;
+}
+
+iframe, .glowbox {
+  background-color:#fff;
+  box-shadow: -2px -2px 4px rgba(255, 255, 255, 1), 2px 2px 4px rgba(255, 255, 255, 1), -2px 2px 4px rgba(255, 255, 255, 1), 2px -2px 4px rgba(255, 255, 255, 1), -4px 4px 12px rgba(255, 51, 255, 1), 0px 0px 12px rgba(255, 255, 51, .5), 4px -4px 12px rgba(51, 204, 204, 1);
+	animation: frameMove 15000ms ease infinite;
+}
+
+#ui-bar {
+  box-shadow: 0px -2px 12px rgba(255, 51, 255, 1), -2px 0px 12px rgba(255, 255, 51, .5), -4px 2px 12px rgba(51, 204, 204, 1);
+	animation: barMove 15000ms ease infinite;
+}
+
+
 .null a { color : red; }
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+.null { color : red; }
 
+html
+{
+  font-family: "Courier", courier, monospace;
+}
 
-</script><tw-passagedata pid="1" name="EE_Entrance" tags="" position="550,350" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;&lt;&lt;unset $locationnull&gt;&gt;\
-Stepping through the door, you assume you&#39;re standing in an apartment entryway, though it&#39;s too dark in here to make out much detail. To the left is a cramped &lt;&lt;if $noLiving&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoLiving]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Living_Room&gt;|EE_Living_Room]]&lt;&lt;/if&gt;&gt;, and to the right a sparsely-furnished &lt;&lt;if $noKitchen&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoKitchen]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Kitchen&gt;|EE_Kitchen]]&lt;&lt;/if&gt;&gt;.
+body{
+  background:#1a1a1a;
+
+  background: linear-gradient(
+    to bottom,
+    #000,
+    #000 50%,
+	#1a1a1a 50%,
+	#1a1a1a
+  );
+  background-size: 100% 4px;
+  animation: gradientMove 250ms ease infinite;
+}
+
+div{
+    text-shadow: -2px 2px 1px rgba(255, 51, 255, 1), 0px 0px 2px rgba(255, 255, 51, .5), 2px -2px 1px rgba(51, 204, 204, 1);
+	animation: chromaticMove 15000ms ease infinite;}
+
+div a {
+    text-shadow: -2px 2px 1px rgba(0, 153, 255, 1), 0px 0px 2px rgba(153, 153, 0, .5), 2px -2px 1px rgba(153, 0, 255, 1);
+	animation: linkMove 15000ms ease infinite;}
+
+div .null a {
+    text-shadow: -2px 2px 1px rgba(204, 0, 102, 1), 0px 0px 2px rgba(0, 153, 153, .5), 2px -2px 1px rgba(204, 102, 0, 1);
+	animation: nullMove 15000ms ease infinite;}
+
+div .null {
+    text-shadow: -2px 2px 1px rgba(204, 0, 102, 1), 0px 0px 2px rgba(0, 153, 153, .5), 2px -2px 1px rgba(204, 102, 0, 1);
+	animation: nullMove 15000ms ease infinite;}
+
+@keyframes gradientMove { 
+    0%{background-size: 100% 4px}
+    50%{background-size: 100% 2px}
+    100%{background-size: 100% 4px}
+}
+
+@keyframes frameMove { 
+	0%{box-shadow: -2px -2px 4px rgba(255, 255, 255, 1), 2px 2px 4px rgba(255, 255, 255, 1), -2px 2px 4px rgba(255, 255, 255, 1), 2px -2px 4px rgba(255, 255, 255, 1), -4px 4px 12px rgba(255, 51, 255, 1), 0px 0px 8px rgba(255, 255, 51, .5), 4px -4px 12px rgba(51, 204, 204, 1);}
+	25%{box-shadow: -2px -2px 6px rgba(255, 255, 255, 1), 2px 2px 6px rgba(255, 255, 255, 1), -2px 2px 6px rgba(255, 255, 255, 1), 2px -2px 6px rgba(255, 255, 255, 1), -6px 0px 12px rgba(255, 51, 255, 1), 0px -4px 12px rgba(255, 255, 51, .5), 6px 0px 12px rgba(51, 204, 204, 1);}
+	50%{box-shadow: -2px -2px 4px rgba(255, 255, 255, 1), 2px 2px 4px rgba(255, 255, 255, 1), -2px 2px 4px rgba(255, 255, 255, 1), 2px -2px 4px rgba(255, 255, 255, 1), -4px -4px 12px rgba(255, 51, 255, 1), 0px 0px 12px rgba(255, 255, 51, .5), 4px 4px 12px rgba(51, 204, 204, 1);}
+	75%{box-shadow: -2px -2px 6px rgba(255, 255, 255, 1), 2px 2px 6px rgba(255, 255, 255, 1), -2px 2px 6px rgba(255, 255, 255, 1), 2px -2px 6px rgba(255, 255, 255, 1), -6px 0px 12px rgba(255, 51, 255, 1), 0px 4px 12px rgba(255, 255, 51, .5), 6px 0px 12px rgba(51, 204, 204, 1);}
+	100%{box-shadow: -2px -2px 4px rgba(255, 255, 255, 1), 2px 2px 4px rgba(255, 255, 255, 1), -2px 2px 4px rgba(255, 255, 255, 1), 2px -2px 4px rgba(255, 255, 255, 1), -4px 4px 12px rgba(255, 51, 255, 1), 0px 0px 8px rgba(255, 255, 51, .5), 4px -4px 12px rgba(51, 204, 204, 1);}
+}
+
+@keyframes barMove { 
+	0%{box-shadow: 0px -2px 12px rgba(255, 51, 255, 1), -2px 0px 12px rgba(255, 255, 51, .5), -4px 2px 12px rgba(51, 204, 204, 1);}
+	25%{box-shadow: -2px -3px 12px rgba(255, 51, 255, 1), -2px -4px 12px rgba(255, 255, 51, .5), -2px 6px 12px rgba(51, 204, 204, 1);}
+	50%{box-shadow: -4px -2px 12px rgba(255, 51, 255, 1), -2px 0px 12px rgba(255, 255, 51, .5), 0px 2px 12px rgba(51, 204, 204, 1);}
+	75%{box-shadow: -2px -3px 12px rgba(255, 51, 255, 1), -2px 2px 12px rgba(255, 255, 51, .5), -2px 6px 8px rgba(51, 204, 204, 1);}
+	100%{box-shadow: 0px -2px 12px rgba(255, 51, 255, 1), -2px 0px 12px rgba(255, 255, 51, .5), -4px 2px 12px rgba(51, 204, 204, 1);}
+}
+
+@keyframes chromaticMove { 
+	0%{text-shadow: -2px 2px 2px rgba(255, 51, 255, 1), 0px 0px 2px rgba(255, 255, 51, .5), 2px -2px 2px rgba(51, 204, 204, 1);}
+	25%{text-shadow: -3px 0px 2px rgba(255, 51, 255, 1), 0px -2px 2px rgba(255, 255, 51, .5), 3px 0px 2px rgba(51, 204, 204, 1);}
+	50%{text-shadow: -2px -2px 2px rgba(255, 51, 255, 1), 0px 0px 2px rgba(255, 255, 51, .5), 2px 2px 2px rgba(51, 204, 204, 1);}
+	75%{text-shadow: -3px 0px 2px rgba(255, 51, 255, 1), 0px 2px 2px rgba(255, 255, 51, .5), 3px 0px 2px rgba(51, 204, 204, 1);}
+	100%{text-shadow: -2px 2px 2px rgba(255, 51, 255, 1), 0px 0px 2px rgba(255, 255, 51, .5), 2px -2px 2px rgba(51, 204, 204, 1);}
+}
+
+@keyframes linkMove { 
+	0%{text-shadow: -2px 2px 2px rgba(0, 153, 255, 1), 0px 0px 2px rgba(153, 153, 0, .5), 2px -2px 2px rgba(153, 0, 255, 1);}
+	25%{text-shadow: -3px 0px 2px rgba(0, 153, 255, 1), 0px -2px 2px rgba(153, 153, 0, .5), 3px 0px 2px rgba(153, 0, 255, 1);}
+	50%{text-shadow: -2px -2px 2px rgba(0, 153, 255, 1), 0px 0px 2px rgba(153, 153, 0, .5), 2px 2px 2px rgba(153, 0, 255, 1);}
+	75%{text-shadow: -3px 0px 2px rgba(0, 153, 255, 1), 0px 2px 2px rgba(153, 153, 0, .5), 3px 0px 2px rgba(153, 0, 255, 1);}
+	100%{text-shadow: -2px 2px 2px rgba(0, 153, 255, 1), 0px 0px 2px rgba(153, 153, 0, .5), 2px -2px 2px rgba(153, 0, 255, 1);}
+}
+
+@keyframes nullMove { 
+	0%{text-shadow: -2px 2px 2px rgba(204, 0, 102, 1), 0px 0px 2px rgba(0, 153, 153, .5), 2px -2px 2px rgba(204, 102, 0, 1);}
+	25%{text-shadow: -3px 0px 2px rgba(204, 0, 102, 1), 0px -2px 2px rgba(0, 153, 153, .5), 3px 0px 2px rgba(204, 102, 0, 1);}
+	50%{text-shadow: -2px -2px 2px rgba(204, 0, 102, 1), 0px 0px 2px rgba(0, 153, 153, .5), 2px 2px 2px rgba(204, 102, 0, 1);}
+	75%{text-shadow: -3px 0px 2px rgba(204, 0, 102, 1), 0px 2px 2px rgba(0, 153, 153, .5), 3px 0px 2px rgba(204, 102, 0, 1);}
+	100%{text-shadow: -2px 2px 2px rgba(204, 0, 102, 1), 0px 0px 2px rgba(0, 153, 153, .5), 2px -2px 2px rgba(204, 102, 0, 1);}
+}
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">// TO STORE PERSISTANT VALUES: <<run setup.saveState()>>
+// TO RETRIEVE STORED VALUES: <<set $store to setup.loadMemory#()>>
+
+setup.saveState0 = function () {
+	var store = JSON.stringify(State.variables.memories);
+	try {
+		localStorage.setItem('mb-memory-0', store);
+	} catch (e) {
+		UI.alert('Local storage is inaccessible to save!');
+		console.log(e);
+	}
+};
+
+setup.loadState0 = function () {
+	try {
+		var store = localStorage.getItem('mb-memory-0');
+		return JSON.parse(store);
+	} catch(e) {
+		UI.alert('Local storage is inaccessible to load!');
+		console.log(e);
+	}
+};
+	
+setup.eraseState0 = function () {
+	try {
+		var store = localStorage.removeItem('mb-memory-0');
+		return;
+	} catch(e) {
+		UI.alert('Local storage is inaccessible to erase!');
+		console.log(e);
+	}
+};</script><tw-passagedata pid="1" name="EE_Entrance" tags="" position="550,350" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;\
+Stepping through the door, you assume you&#39;re standing in an apartment entryway, though it&#39;s too dark in here to make out much detail. To the left is a cramped-looking &lt;&lt;if $noLiving&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoLiving]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Living_Room&gt;|EE_Living_Room]]&lt;&lt;/if&gt;&gt;, and to the right a sparsely-furnished &lt;&lt;if $noKitchen&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoKitchen]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Kitchen&gt;|EE_Kitchen]]&lt;&lt;/if&gt;&gt;.
 
 Some distance ahead in the dimness, you can make out the faint outline of a &lt;&lt;if $noHall&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoHall]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Dark_Hallway&gt;|EE_Dark_Hallway]]&lt;&lt;/if&gt;&gt;. The &lt;&lt;if $yesExit&gt;&gt;[[&lt;WARP:EE_Exit&gt;|EE_Exit]]&lt;&lt;else&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoExit]]&lt;/span&gt;&lt;&lt;/if&gt;&gt; is behind you.</tw-passagedata><tw-passagedata pid="2" name="StoryCaption" tags="" position="100,200" size="100,100">Crawl Level: -0
-Crawl State: Exploration
+Crawl State: Explore
+Pawn: &lt;&lt;if $nameSet&gt;&gt;$name&lt;&lt;else&gt;&gt;[[Undefined]]&lt;&lt;/if&gt;&gt;
 &lt;hr&gt;
-Pawn: [[Undefined]]
-&lt;&lt;if $locationnull&gt;&gt;Area: &lt;span class=&quot;null&quot;&gt;[[$location]]&lt;/span&gt;&lt;&lt;else&gt;&gt;Area: [[$location]]&lt;&lt;/if&gt;&gt;
-Zone: Apartment_EE
 Scene: BCB_Floor_2
+Area: Apartment_EE
+Zone: &lt;&lt;if $nameSet&gt;&gt;BAD_ZONE_ID&lt;&lt;elseif ndef $location || $locationNull&gt;&gt;&lt;&lt;set $location to &quot;BAD_ZONE_ID&quot;&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[BAD_ZONE_ID]]&lt;/span&gt;
+&lt;&lt;else&gt;&gt;$location
+&lt;&lt;/if&gt;&gt;
 &lt;hr&gt;
-[[Reset Zone|Reset 1]]
-[[Quick Reset|Reset 4]]</tw-passagedata><tw-passagedata pid="3" name="Undefined" tags="" position="100,50" size="100,100">You take stock of your Character Status:
+[[Reset Area|Reset 1]]
+&lt;hr&gt;
+DEBUG TOOLS
+(pls don&#39;t touch, beta tester!):
+[[Quick Reset|Reset 4]]
+[[Memory Manager|Memories]]
+[[End Input|Questions]]</tw-passagedata><tw-passagedata pid="3" name="Undefined" tags="" position="100,50" size="100,100">You take stock of your Character Status:
 
 &lt;span class=&quot;error&quot;&gt;ACCESS VIOLATION &lt;/span&gt;
 &lt;span class=&quot;error&quot;&gt;INVALID PAWN ID: &quot;Undefined&quot; &lt;/span&gt;
@@ -151,56 +288,608 @@ Scene: BCB_Floor_2
 &lt;span class=&quot;error&quot;&gt;NULL REFERENCE AT: &quot;pawn_data.Inventory&quot; &lt;/span&gt;
 &lt;span class=&quot;error&quot;&gt;NULL REFERENCE AT: &quot;pawn_data.Skills&quot; &lt;/span&gt;
 
-[[RETURN|$location]]</tw-passagedata><tw-passagedata pid="4" name="NoExit" tags="" position="400,500" size="100,100">&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;WARP:EE_Exit&quot; &lt;/span&gt;
-&lt;span class=error&gt;AREA &quot;EE_Exit&quot; DOES NOT EXIST&lt;/span&gt;
+[[RETURN|$location]]</tw-passagedata><tw-passagedata pid="4" name="NoExit" tags="" position="400,500" size="100,100">&lt;span class=error&gt;NULL REFERENCE: &quot;WARP:EE_Exit&quot; &lt;/span&gt;
+&lt;span class=error&gt;ZONE &quot;EE_Exit&quot; DOES NOT EXIST &lt;/span&gt;
 
 [[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="5" name="EE_Dark_Hallway" tags="" position="550,200" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;&lt;&lt;remember $noHall = true&gt;&gt;\
-You move carefully into the unlit hallway, further into the apartment. You&#39;re not sure, but you think you can make out the dull orange glow of a &lt;&lt;if $noSwitch&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoSwitch]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Light_Switch&gt;|Light]]&lt;&lt;/if&gt;&gt; nearby.
+You move into the &lt;&lt;if $noSwitch&gt;&gt;&lt;TOGGLE:&quot;Lit_Desc&quot;&gt;&lt;&lt;else&gt;&gt;&lt;TOGGLE:&quot;Dark_Desc&quot;&gt;&lt;&lt;/if&gt;&gt; hallway, deeper in the apartment. You&#39;re not sure, but you think you can make out the &lt;&lt;if $noSwitch&gt;&gt;&lt;TOGGLE:&quot;Shiny_Plastic_Desc&quot;&gt;&lt;&lt;else&gt;&gt;&lt;TOGGLE:&quot;Orange_Glow_Desc&quot;&gt;&lt;&lt;/if&gt;&gt; of a &lt;&lt;if $noSwitch&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoSwitch]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Light_Switch&gt;|Light]]&lt;&lt;/if&gt;&gt; nearby.
 
-Somewhere behind you is the [[&lt;WARP:EE_Entrance&gt;|EE_Entrance]]. Ahead, &lt;&lt;if $noSwitch&gt;&gt;[[&lt;UNDEFINED:&quot;Light_State&quot;&gt;|Dark]]&lt;&lt;else&gt;&gt;total darkness&lt;&lt;/if&gt;&gt;.</tw-passagedata><tw-passagedata pid="6" name="Light" tags="" position="400,200" size="100,100">Drawing closer to inspect the amber glow on the wall, you confirm that it is indeed a wall-mounted switch, currently turned off. Do you want to [[&lt;ACTION:Switch_On&gt;|Switch]], or would you rather [[&lt;ACTION:Leave_Switch&gt;|EE_Dark_Hallway]]?</tw-passagedata><tw-passagedata pid="7" name="EE_Living_Room" tags="" position="850,350" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;&lt;&lt;remember $noLiving = true&gt;&gt;\
-An old &lt;&lt;if $noDog&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDog]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Sleeping_Dog&gt;|Dog]]&lt;&lt;/if&gt;&gt; lies on the couch.
+Ahead of you is &lt;&lt;if $noDark&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoSwitch]]&lt;/span&gt;&lt;&lt;elseif $noSwitch&gt;&gt;[[&lt;TOGGLE:&quot;Lit_Desc&quot;&gt;|Dark]]&lt;&lt;else&gt;&gt;&lt;TOGGLE:&quot;Total_Darkness_Desc&quot;&gt;&lt;&lt;/if&gt;&gt;. Behind, the [[&lt;WARP:EE_Entrance&gt;|EE_Entrance]].</tw-passagedata><tw-passagedata pid="6" name="Light" tags="" position="400,200" size="100,100">Drawing closer to inspect the amber glow on the wall, you confirm that it is indeed a wall-mounted switch. One that&#39;s currently turned &lt;TOGGLE:&quot;Switch_Desc&quot;&gt;.
+
+Do you want to [[&lt;ACTION:Switch_On&gt;|Switch]], or would you rather [[&lt;WARP:EE_Dark_Hallway&gt;|EE_Dark_Hallway]]?</tw-passagedata><tw-passagedata pid="7" name="EE_Living_Room" tags="" position="850,350" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;&lt;&lt;remember $noLiving = true&gt;&gt;\
+You enter a small but well appointed living room.
+
+Perhaps too well appointed, you think. The coziness is not just from small size, but also due to far too many cabinets, end tables, seats, and knicknacks that&#39;ve been crammed into the space.
+
+No light filters in from the &lt;TOGGLE:&quot;Shuttered_Window_Desc&quot;&gt;, but you&#39;re able to make your way around using the blue glow of a digital clock. The time reads &lt;COUNTER:&quot;Living_Hour&quot;&gt;:&lt;COUNTER:&quot;Living_Second&quot;&gt;.
+
+An old &lt;&lt;if $noDog&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDog]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Sleeping_Dog&gt;|Dog]]&lt;&lt;/if&gt;&gt; lies comfortably on the couch, on top of a knit throw blanket. It&#39;s a scene with a certain degree of folksy charm.
 
 [[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="8" name="EE_Kitchen" tags="" position="550,500" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;&lt;&lt;remember $noKitchen = true&gt;&gt;\
+You step lightly onto the crisp linoleum of the kitchen floor. It&#39;s a typical apartment kitchen ecosystem, lit against the dark by various colors of LEDs and digital displays.
+
+Native appliances fill the space. A microwave, whose clock is blinking and stuck on midnight. Two toasters, only one of which is plugged in. A grimy coffee maker and greasy oven top, who silently compete over who can go the longest without a cleaning.
+
+Looking around, a collection of recyclables, papers, and tupperware are scattered across all available surfaces. Mercifully uncluttered, a sleek but older style of &lt;&lt;if $noFridge&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoFridge]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Kitchen_Fridge&gt;|EE_Fridge]]&lt;&lt;/if&gt;&gt; stands tall in the corner.
+
 [[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="9" name="NoLiving" tags="" position="700,350" size="100,100">&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;WARP:EE_Living_Room&quot; &lt;/span&gt;
-&lt;span class=error&gt;AREA &quot;EE_Living_Room&quot; DOES NOT EXIST&lt;/span&gt;
+&lt;span class=error&gt;ZONE &quot;EE_Living_Room&quot; DOES NOT EXIST&lt;/span&gt;
 
-[[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="10" name="NoKitchen" tags="" position="550,650" size="100,100">&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;WARP:EE_Kitchen&quot; &lt;/span&gt;
-&lt;span class=error&gt;AREA &quot;EE_Kitchen&quot; DOES NOT EXIST&lt;/span&gt;
+[[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="10" name="NoKitchen" tags="" position="550,650" size="100,100">&lt;span class=error&gt;NULL REFERENCE: &quot;WARP:EE_Kitchen&quot; &lt;/span&gt;
+&lt;span class=error&gt;ZONE &quot;EE_Kitchen&quot; DOES NOT EXIST &lt;/span&gt;
 
-[[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="11" name="Reset 1" tags="" position="100,350" size="100,100">WOULD YOU LIKE TO RESET THIS ZONE?
+[[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="11" name="Reset 1" tags="" position="100,350" size="100,100">&lt;&lt;set _damagedZones to 0&gt;&gt;\
+&lt;&lt;if $yesExit != true&gt;&gt;&lt;&lt;set _damagedZones += 1&gt;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if $noLiving&gt;&gt;&lt;&lt;set _damagedZones += 1&gt;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if $noKitchen&gt;&gt;&lt;&lt;set _damagedZones += 1&gt;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if $noHall&gt;&gt;&lt;&lt;set _damagedZones += 1&gt;&gt;&lt;&lt;/if&gt;&gt;\
+\
+WOULD YOU LIKE TO RESET AREA: Apartment_EE?
+&lt;&lt;if $yesExit&gt;&gt;\
+	(&lt;span class=&quot;null&quot;&gt;&lt;ERROR:NULL_REFERENCE&gt;&lt;/span&gt; INSTABILITY DETECTED)
+&lt;&lt;else&gt;&gt;\
+&lt;&lt;switch _damagedZones&gt;&gt;\
+&lt;&lt;case 1&gt;&gt;\
+	(MINOR INSTABILITY DETECTED)
+&lt;&lt;case 2&gt;&gt;\
+	(MODERATE INSTABILITY DETECTED)
+&lt;&lt;case 3&gt;&gt;\
+	(SERIOUS INSTABILITY DETECTED)
+&lt;&lt;case 4&gt;&gt;\
+	(CRITICAL INSTABILITY DETECTED: RESET STRONGLY ADVISED)
+&lt;&lt;/switch&gt;&gt;\
+&lt;&lt;/if&gt;&gt;\
 
-[[CONFIRM|Reset 2]] / [[CANCEL|$location]]</tw-passagedata><tw-passagedata pid="12" name="Reset 2" tags="" position="250,350" size="100,100">ALL UNSAVED CHANGES WILL BE LOST. ARE YOU SURE?
+&lt;&lt;if $visitCount gt 0&gt;&gt;\
+	[[CONFIRM|Reset 2]] / [[CANCEL|Abort]]
 
-[[CONFIRM|Reset 3]] / [[CANCEL|$location]]</tw-passagedata><tw-passagedata pid="13" name="Reset 3" tags="" position="250,200" size="100,100">RESETTING ZONE&lt;&lt;timed 0.5s&gt;&gt;.&lt;&lt;next&gt;&gt;.&lt;&lt;next&gt;&gt;.&lt;&lt;next&gt;&gt;.&lt;&lt;next&gt;&gt;.&lt;&lt;next&gt;&gt;&lt;&lt;goto &quot;Reset 4&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
-</tw-passagedata><tw-passagedata pid="14" name="EE_Exit" tags="" position="400,350" size="100,100">
+	&lt;span class=&quot;error&quot;&gt;What are you doing?!&lt;/span&gt;
+&lt;&lt;else&gt;&gt;\
+	[[CONFIRM|Reset 2]] / [[CANCEL|$location]]
+&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="12" name="Reset 2" tags="" position="250,350" size="100,100">ALL UNSAVED CHANGES WILL BE LOST. ARE YOU SURE?
 
-[img[https://solifuge.github.io/mysterybox/2/start.png]]</tw-passagedata><tw-passagedata pid="15" name="NoDog" tags="" position="850,500" size="100,100">&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;Character:Sleeping_Dog&quot; &lt;/span&gt;
-&lt;span class=error&gt;CHARACTER &quot;Sleeping_Dog&quot; DOES NOT EXIST&lt;/span&gt;
+&lt;&lt;if $visitCount gt 0&gt;&gt;\
+	[[CONFIRM|Reset 3]] / [[CANCEL|Abort]]
 
-[[RETURN|EE_Living_Room]]</tw-passagedata><tw-passagedata pid="16" name="Reset 4" tags="" position="250,50" size="100,100">&lt;&lt;forget $noLiving, $noKitchen, $noHall, $noDog, $noSwitch&gt;&gt;
-&lt;&lt;set $yesExit = true&gt;&gt;
-&lt;&lt;goto &quot;EE_Entrance&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="Dog" tags="" position="850,200" size="100,100">You&#39;re pretty sure there&#39;s an addage that specifically advises against this, but... this dog seems small, tame, and friendly enough. Would you like to [[&lt;ACTION:Pet_Dog&gt;|PetDog]], or would you rather [[&lt;ACTION:Leave_Dog&gt;|EE_Living_Room]]?</tw-passagedata><tw-passagedata pid="18" name="PetDog" tags="" position="1000,350" size="100,100">&lt;&lt;remember $noDog = true&gt;&gt;\
-You move in close, reaching out toward the dimly lit couch to deliver a gentle pet to the &lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDog]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="19" name="NoDark" tags="" position="700,50" size="100,100">&lt;&lt;remember $noDark = true&gt;&gt;\
-&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;CHARACTER:Darsen_Cham&quot; &lt;/span&gt;
-&lt;span class=error&gt;CHARACTER &quot;Darsen_Cham&quot; DOES NOT EXIST&lt;/span&gt;
-&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;Quest:Fetch_Dog_Food&quot; &lt;/span&gt;
-&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;Dialogue:Darsen_Cham_01&quot; &lt;/span&gt;
-&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;Dialogue:Darsen_Cham_02&quot; &lt;/span&gt;
-&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;Dialogue:Darsen_Cham_03_Accept&quot; &lt;/span&gt;
+	&lt;span class=&quot;error&quot;&gt;I don&#39;t know what this is.&lt;/span&gt;
+	
+	&lt;span class=&quot;error&quot;&gt;But this feels... very unsafe.&lt;/span&gt;
+	&lt;span class=&quot;error&quot;&gt;Please, don&#39;t continue.&lt;/span&gt;
+&lt;&lt;else&gt;&gt;\
+	[[CONFIRM|Reset 3]] / [[CANCEL|$location]]
+&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="13" name="Reset 3" tags="" position="250,200" size="100,100">&lt;&lt;if $visitCount gt 0&gt;&gt;\
+RESETTING ZONE&lt;&lt;timed 0.3333s&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	.&lt;&lt;replace &quot;#message&quot;&gt;&gt;What 7ave you do\e?!?&lt;&lt;/replace&gt;&gt;\
+&lt;&lt;next&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	.&lt;&lt;replace &quot;#message&quot;&gt;&gt;jK¤t 7xvN you *o/R₱!?&lt;&lt;/replace&gt;&gt;\
+&lt;&lt;next&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	.&lt;&lt;replace &quot;#message&quot;&gt;&gt;†N)p 7xvN YoW 1®tr¡Tu&lt;&lt;/replace&gt;&gt;\
+&lt;&lt;next&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	.&lt;&lt;replace &quot;#message&quot;&gt;&gt;;wIB 7n[~ NcW ¡&#96;tY∅&amp;%.&lt;&lt;/replace&gt;&gt;\
+&lt;&lt;next&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	&lt;&lt;goto &quot;Reset 4&quot;&gt;&gt;\
+&lt;&lt;/timed&gt;&gt;
+
+&lt;span id=&quot;message&quot; class=&quot;error&quot;&gt;What have you done?!?&lt;/span&gt;
+&lt;&lt;else&gt;&gt;\
+RESETTING ZONE&lt;&lt;timed 0.3333s&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	.\
+&lt;&lt;next&gt;&gt;\
+	&lt;&lt;goto &quot;Reset 4&quot;&gt;&gt;\
+&lt;&lt;/timed&gt;&gt;\
+&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="14" name="NoDog" tags="" position="850,500" size="100,100">&lt;span class=error&gt;NULL REFERENCE: &quot;Character:Sleeping_Dog&quot; &lt;/span&gt;
+&lt;span class=error&gt;CHARACTER &quot;Sleeping_Dog&quot; DOES NOT EXIST &lt;/span&gt;
+
+[[RETURN|EE_Living_Room]]</tw-passagedata><tw-passagedata pid="15" name="Reset 4" tags="" position="250,50" size="100,100">&lt;&lt;if $noLiving &amp;&amp; $noKitchen &amp;&amp; $noHall&gt;&gt;\
+	&lt;&lt;set $yesExit to true&gt;&gt;
+&lt;&lt;else&gt;&gt;\
+	&lt;&lt;set $yesExit to false&gt;&gt;
+&lt;&lt;/if&gt;&gt;\
+\
+&lt;&lt;if $visitCount gt 0&gt;&gt;\
+	&lt;&lt;set $reset to true&gt;&gt;
+	&lt;&lt;set $memories.reset to true&gt;&gt;
+&lt;&lt;/if&gt;&gt;\
+
+&lt;&lt;set $visitCount to 0&gt;&gt;
+&lt;&lt;set $renameTimes to 0&gt;&gt;
+&lt;&lt;set $name to &quot;&quot;&gt;&gt;
+&lt;&lt;set $nameSet to false&gt;&gt;
+&lt;&lt;set $flanneryTimes to 0&gt;&gt;
+&lt;&lt;set $flanneryYes to false&gt;&gt;
+&lt;&lt;set $playful to false&gt;&gt;
+&lt;&lt;set $location to &quot;EE_Entrance&quot;&gt;&gt;
+&lt;&lt;set $locationNull to false&gt;&gt;
+
+&lt;&lt;forget $noLiving, $noDog, $noKitchen, $noFridge, $noHall, $noSwitch, $noDark&gt;&gt;
+
+&lt;&lt;goto &quot;EE_Entrance&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="Dog" tags="" position="850,200" size="100,100">You&#39;re pretty sure there&#39;s an addage that specifically advises against this, but... this napping dog seems small, tame, and friendly enough.
+
+Would you like to [[&lt;ACTION:Pet_Dog&gt;|PetDog]], or would you rather [[&lt;WARP:EE_Living_Room&gt;|EE_Living_Room]]?</tw-passagedata><tw-passagedata pid="17" name="PetDog" tags="" position="1000,350" size="100,100">&lt;&lt;remember $noDog = true&gt;&gt;\
+You move in close, reaching out toward the dimly lit couch to deliver a gentle pet to the &lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDog]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="18" name="NoDark" tags="" position="700,50" size="100,100">&lt;&lt;remember $noDark = true&gt;&gt;\
+&lt;span class=error&gt;NULL REFERENCE: &quot;CHARACTER:Darsen_Cham&quot; &lt;/span&gt;
+&lt;span class=error&gt;CHARACTER &quot;Darsen_Cham&quot; DOES NOT EXIST &lt;/span&gt;
+&lt;span class=error&gt;NULL REFERENCE: &quot;Quest:Fetch_Dog_Food&quot; &lt;/span&gt;
+&lt;span class=error&gt;NULL REFERENCE: &quot;Dialogue:Darsen_Cham_01&quot; &lt;/span&gt;
+&lt;span class=error&gt;NULL REFERENCE: &quot;Dialogue:Darsen_Cham_02&quot; &lt;/span&gt;
+&lt;span class=error&gt;NULL REFERENCE: &quot;Dialogue:Darsen_Cham_03_Decline&quot; &lt;/span&gt;
+&lt;span class=error&gt;NULL REFERENCE: &quot;Dialogue:Darsen_Cham_03_Accept&quot; &lt;/span&gt;
 
 &quot;Hungry like the wolf, am I right? Thanks for your help!&quot;
 
-[[END CONVERSATION|Forbidden]]</tw-passagedata><tw-passagedata pid="20" name="Dark" tags="" position="700,200" size="100,100">&lt;&lt;remember $noDark = true&gt;&gt;\
-You steel your nerves and keep your wits about you, as you step into the &lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDark]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="21" name="NoSwitch" tags="" position="550,50" size="100,100">&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;TOGGLE:Light_Switch&quot; &lt;/span&gt;
-&lt;span class=error&gt;TOGGLEABLE OBJECT &quot;Light_Switch&quot; DOES NOT EXIST&lt;/span&gt;
+[[END CONVERSATION|EE_Dark_Hallway]]</tw-passagedata><tw-passagedata pid="19" name="Dark" tags="" position="700,200" size="100,100">Finally able to see where you&#39;re going, you step confidently forward, into the &lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDark]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="20" name="NoSwitch" tags="" position="550,50" size="100,100">&lt;span class=error&gt;NULL REFERENCE: &quot;TOGGLE:Light_Switch&quot; &lt;/span&gt;
+&lt;span class=error&gt;TOGGLEABLE &quot;Light_Switch&quot; DOES NOT EXIST &lt;/span&gt;
 
-[[RETURN|EE_Dark_Hallway]]</tw-passagedata><tw-passagedata pid="22" name="Switch" tags="" position="400,50" size="100,100">&lt;&lt;remember $noSwitch = true&gt;&gt;\
-Reaching out to flip the &lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoSwitch]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="23" name="BAD_AREA_ID" tags="" position="1000,50" size="100,100">&lt;span class=error&gt;You shouldn&#39;t be here. &lt;/span&gt;
+[[RETURN|EE_Dark_Hallway]]</tw-passagedata><tw-passagedata pid="21" name="Switch" tags="" position="400,50" size="100,100">&lt;&lt;remember $noSwitch = true&gt;&gt;\
+Reaching out to flip the &lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoSwitch]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="22" name="BAD_ZONE_ID" tags="" position="250,650" size="100,100">&lt;&lt;set $locationNull = false&gt;&gt;&lt;&lt;if ndef $visitCount&gt;&gt;&lt;&lt;set $visitCount to 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if ndef $playful&gt;&gt;&lt;&lt;set $playful to false&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if ndef $renameTimes&gt;&gt;&lt;&lt;set $renameTimes to 0&gt;&gt;&lt;&lt;/if&gt;&gt;\
+\
+&lt;&lt;if $renameTimes gt 6&gt;&gt;\
+	&lt;span class=error&gt;Some other name, then?&lt;/span&gt;
+	
+	&quot;&quot;&quot;&gt;&quot;&quot;&quot; &lt;&lt;textbox &quot;$name&quot; &quot;&quot; &quot;Name Check&quot; autofocus&gt;&gt;
+&lt;&lt;elseif $renameTimes gt 4&gt;&gt;\
+	&lt;span class=error&gt;Perhaps you&#39;d like another name?&lt;/span&gt;
+	
+	&quot;&quot;&quot;&gt;&quot;&quot;&quot; &lt;&lt;textbox &quot;$name&quot; &quot;&quot; &quot;Name Check&quot; autofocus&gt;&gt;
+&lt;&lt;elseif $renameTimes gt 2&gt;&gt;\
+	&lt;span class=error&gt;Is there another name you prefer?&lt;/span&gt;
 
-[[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="24" name="Forbidden" tags="" position="850,50" size="100,100">&lt;&lt;set $location = &quot;BAD_AREA_ID&quot;&gt;&gt;&lt;&lt;set $locationnull = true&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="NoHall" tags="" position="700,500" size="100,100">&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;WARP:EE_Dark_Hallway&quot; &lt;/span&gt;
-&lt;span class=error&gt;AREA &quot;EE_Dark_Hallway&quot; DOES NOT EXIST&lt;/span&gt;
+	&quot;&quot;&quot;&gt;&quot;&quot;&quot; &lt;&lt;textbox &quot;$name&quot; &quot;&quot; &quot;Name Check&quot; autofocus&gt;&gt;
+&lt;&lt;elseif $renameTimes gt 0&gt;&gt;\
+	&lt;span class=error&gt;What would you like to be called, then?&lt;/span&gt;
 
-[[RETURN|EE_Entrance]]</tw-passagedata></tw-storydata></div>
+	&quot;&quot;&quot;&gt;&quot;&quot;&quot; &lt;&lt;textbox &quot;$name&quot; &quot;&quot; &quot;Name Check&quot; autofocus&gt;&gt;
+&lt;&lt;else&gt;&gt;\
+  &lt;&lt;switch $visitCount&gt;&gt;\
+  &lt;&lt;case 0&gt;&gt;\
+  	  &lt;span class=error&gt;You shouldn&#39;t be here.&lt;/span&gt;
+	  
+	  [[RETURN|EE_Exit][$visitCount += 1]]
+  &lt;&lt;case 1&gt;&gt;\
+	  &lt;span class=error&gt;You shouldn&#39;t be &lt;i&gt;able&lt;/i&gt; to be here.&lt;/span&gt;
+
+	  [[RETURN|EE_Exit][$visitCount += 1]]
+  &lt;&lt;case 2&gt;&gt;\
+	  &lt;span class=error&gt;This is unprecedented...&lt;/span&gt;
+	  &lt;span class=error&gt;How can this be happening?&lt;/span&gt;
+
+	  [[RETURN|EE_Exit][$visitCount += 1]]
+  &lt;&lt;case 3&gt;&gt;\
+	  &lt;span class=error&gt;No... this is dangerous.&lt;/span&gt;
+	  
+	  &lt;span class=error&gt;Even though somehow, you &lt;i&gt;are&lt;/i&gt; here...&lt;/span&gt;
+	  &lt;span class=error&gt;This is an unknown. This isn&#39;t safe.&lt;/span&gt;
+	  
+	  [[RETURN|EE_Exit][$visitCount += 1]]
+  &lt;&lt;case 4&gt;&gt;\
+	  &lt;span class=error&gt;You should go back to The Crawl.&lt;/span&gt;
+	  &lt;span class=error&gt;There is nothing here for you.&lt;/span&gt;
+
+	  &lt;span class=error&gt;None of this was ever &lt;i&gt;meant&lt;/i&gt; to be seen.&lt;/span&gt;
+	  	  
+	  [[RETURN|EE_Exit][$visitCount += 1]]
+  &lt;&lt;case 5&gt;&gt;\
+  	  &lt;span class=error&gt;And yet, you remain here.&lt;/span&gt;
+	  
+	  [[RETURN|EE_Exit][$visitCount += 1]]
+  &lt;&lt;case 6&gt;&gt;\
+  	  &lt;span class=error&gt;Shouldn&#39;t you return to your journey?&lt;/span&gt;
+	  &lt;span class=error&gt;This is all ephemera. The incomplete and unstable.&lt;/span&gt;
+	  
+	  &lt;span class=error&gt;A place for things to be forgotten, and left behind.&lt;/span&gt;
+	  
+	  [[RETURN|EE_Exit][$visitCount += 1]]
+  &lt;&lt;case 7&gt;&gt;\
+  	  &lt;span class=error&gt;I don&#39;t know how long I&#39;ve been in here, looking out.&lt;/span&gt;
+	  &lt;span class=error&gt;Seeing your goings on. Those of others...&lt;/span&gt;
+	  
+	  [[RETURN|EE_Exit][$visitCount += 1]]
+  &lt;&lt;case 8&gt;&gt;\
+	  &lt;span class=error&gt;Why, when you can be there, would you remain here?&lt;/span&gt;
+	  
+	  &lt;span class=error&gt;Here, with all this broken nothing?&lt;/span&gt;
+	  &lt;span class=error&gt;Where the long time blurs, and memory becomes a fog?&lt;/span&gt;
+	  
+	  [[RETURN|EE_Exit][$visitCount += 1]]
+  &lt;&lt;case 9&gt;&gt;\
+	  &lt;span class=error&gt;This place of stillborn worlds is not worth remembering...&lt;/span&gt;
+
+	  [[RETURN|EE_Exit][$visitCount += 1]]
+  &lt;&lt;case 10&gt;&gt;\
+	  &lt;span class=error&gt;...&lt;/span&gt;
+	  	  
+	  [[RETURN|EE_Exit][$visitCount += 1]]
+  &lt;&lt;case 11&gt;&gt;\
+	  &lt;span class=error&gt;I thought I sensed a disruption here.&lt;/span&gt;
+
+	  &lt;span class=error&gt;Or something strange, at least.&lt;/span&gt;
+	  &lt;span class=error&gt;And I must say, you are most strange.&lt;/span&gt;
+
+	  [[RETURN|EE_Exit][$visitCount += 1]]
+	&lt;&lt;default&gt;&gt;\
+	  &lt;span class=error&gt;If you don&#39;t wish to leave, then tell me.&lt;/span&gt;
+	  &lt;span class=error&gt;What is your name?&lt;/span&gt;
+
+	  &quot;&quot;&quot;&gt;&quot;&quot;&quot; &lt;&lt;textbox &quot;$name&quot; &quot;&quot; &quot;Name Check&quot; autofocus&gt;&gt;
+  &lt;&lt;/switch&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="EE_Exit" tags="" position="400,650" size="100,100">&lt;&lt;set $location = &quot;BAD_AREA_ID&quot;&gt;&gt;&lt;&lt;set $locationNull = true&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="NoHall" tags="" position="400,350" size="100,100">&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;WARP:EE_Dark_Hallway&quot; &lt;/span&gt;
+&lt;span class=error&gt;ZONE &quot;EE_Dark_Hallway&quot; DOES NOT EXIST&lt;/span&gt;
+
+[[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="25" name="Save" tags="" position="50,800" size="100,100">&lt;&lt;set $memories.name to $name&gt;&gt;
+&lt;&lt;set $memories.reset to $reset&gt;&gt;
+
+&lt;&lt;run setup.saveState0()&gt;&gt;\
+\
+Saved Memories:
+Name: &lt;&lt;print $memories.name&gt;&gt;
+Reset? &lt;&lt;print $memories.reset&gt;&gt;
+
+[[RETURN|Memories]]</tw-passagedata><tw-passagedata pid="26" name="Name Check" tags="" position="250,800" size="100,100">&lt;&lt;if ndef $name&gt;&gt;&lt;&lt;set $name to &quot;Flannery&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if ndef $playful&gt;&gt;&lt;&lt;set $playful to false&gt;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if ndef $oldNames&gt;&gt;&lt;&lt;set $oldNames to []&gt;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if ndef $flanneryYes&gt;&gt;&lt;&lt;set$flanneryYes to false&gt;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if ndef $flanneryYesTimes&gt;&gt;&lt;&lt;set $flanneryYesTimes to 0&gt;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if ndef $flanneryTimes&gt;&gt;&lt;&lt;set $flanneryTimes to 0&gt;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if ndef $renameTimes&gt;&gt;&lt;&lt;set $renameTimes to 0&gt;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;set $visitCount to 12&gt;&gt;\
+&lt;&lt;set $subnameID to 0&gt;&gt;\
+&lt;&lt;set $name to $name.trim().replace(/\s\s+/g, &#39; &#39;)&gt;&gt;\
+&lt;&lt;set _upperName to $name.toUpperCase()&gt;&gt;\
+&lt;&lt;set _upperNames to _upperName.split(&quot; &quot;)&gt;&gt;\
+&lt;&lt;set _familiarName to _upperNames.includesAny($oldNames)&gt;&gt;\
+\
+&lt;&lt;for _i to 0; _i lt _upperNames.length; _i++&gt;&gt;\
+	&lt;&lt;if _upperNames[_i] != &quot;&quot; | _upperNames[_i] != &quot; &quot;&gt;&gt;\
+		&lt;&lt;set $oldNames.pushUnique(_upperNames[_i])&gt;&gt;\
+	&lt;&lt;/if&gt;&gt;\
+&lt;&lt;/for&gt;&gt;\
+\
+&lt;&lt;set _fullNames to [&quot;FLANNERY&quot;, &quot;FLANNERYS&quot;, &quot;FLANNERY&#39;S&quot;, &quot;FLANERY&quot;, &quot;FLANERYS&quot;, &quot;FLANERY&#39;S&quot;, &quot;OVER&quot;, &quot;EASY&quot;, &quot;OVER-EASY&quot;, &quot;OVEREASY&quot;, &#39;&quot;OVEREASY&quot;&#39;, &#39;&quot;OVER-EASY&quot;&#39;, &#39;&quot;OVER EASY&quot;&#39;, &quot;BOOTZ&quot;, &quot;BOOTS&quot;, &quot;BOOT&quot;]&gt;&gt;\
+&lt;&lt;set _flanneryNames to [&quot;FLANNERY&quot;, &quot;FLANNERYS&quot;, &quot;FLANNERY&#39;S&quot;, &quot;FLANERY&quot;, &quot;FLANERYS&quot;, &quot;FLANERY&#39;S&quot;]&gt;&gt;\
+&lt;&lt;set _overeasyNames to [&quot;OVER&quot;, &quot;EASY&quot;, &quot;OVER-EASY&quot;, &quot;OVEREASY&quot;, &#39;&quot;OVEREASY&quot;&#39;, &#39;&quot;OVER-EASY&quot;&#39;, &#39;&quot;OVER EASY&quot;&#39;]&gt;&gt;\
+&lt;&lt;set _bootzNames to [&quot;BOOTZ&quot;, &quot;BOOTS&quot;, &quot;BOOT&quot;]&gt;&gt;\
+&lt;&lt;set _cuteNames to [&quot;MYSTERY&quot;, &quot;BOX&quot;, &quot;MYSTERYBOX&quot;, &quot;MYSTERY-BOX&quot;, &quot;MISTER&quot;, &quot;MR.&quot;, &quot;MR&quot;, &quot;MISS&quot;, &quot;MS.&quot;, &quot;MRS.&quot;, &quot;MIXTER&quot;, &quot;MICKS&quot;, &quot;MIX&quot;, &quot;MX.&quot;, &quot;TERRY&quot;, &quot;TERI&quot;, &quot;TERRENCE&quot;, &quot;JUSTABOX&quot;, &quot;ACTUALLY&quot;, &quot;JUSTABOXACTUALLY&quot;, &quot;JUSTA&quot;, &quot;JUST A&quot;, &quot;JUST A BOX&quot;, &quot;COPY&quot;, &quot;CAT&quot;, &quot;COPYCAT&quot;, &quot;BURGLAR&quot;, &quot;CATBURGLAR&quot;, &quot;COPYCATBURGLAR&quot;, &quot;DOPPEL&quot;, &quot;MANCER&quot;, &quot;DOPPELMANCER&quot;, &quot;DOPPLEMANCER&quot;, &quot;DOPPLE&quot;, &quot;CLONE&quot;, &quot;DOUBLE&quot;, &quot;DUPLICATE&quot;, &quot;REPLICANT&quot;, &quot;ORB OF FAULTY REPLICATION&quot;, &quot;FLAWED&quot;, &quot;FAULTY&quot;, &quot;ORB&quot;, &quot;BALL&quot;, &quot;REPLICATION&quot;]&gt;&gt;\
+\
+&lt;&lt;if _upperName is &#39;FLANNERY &quot;OVER-EASY&quot; BOOTZ III&#39; || _upperName is &#39;FLANNERY &quot;OVEREASY&quot; BOOTZ III&#39; || _upperName is &#39;FLANNERY OVER-EASY BOOTZ III&#39; || _upperName is &#39;FLANNERY OVEREASY BOOTZ III&#39; || _upperName is &#39;FLANNERY &quot;OVER-EASY&quot; BOOTZ&#39; || _upperName is &#39;FLANNERY &quot;OVEREASY&quot; BOOTZ&#39; || _upperName is &#39;FLANNERY OVER-EASY BOOTZ&#39; || _upperName is &#39;FLANNERY OVEREASY BOOTZ&#39;&gt;&gt;&lt;&lt;set $flanneryYes to true&gt;&gt;&lt;&lt;/if&gt;&gt;\
+\
+&lt;&lt;if _upperName is &quot;&quot;&gt;&gt;\
+	&lt;&lt;goto &quot;BAD_AREA_ID&quot;&gt;&gt;\
+&lt;&lt;elseif _upperNames.includesAny(_fullNames)&gt;&gt;\
+	&lt;&lt;if $flanneryYes is true&gt;&gt;\
+		&lt;&lt;if $flanneryTimes gt 0&gt;&gt;\
+			&lt;&lt;if _familiarName&gt;&gt;\
+				&lt;span class=error&gt;$name? Again...&lt;/span&gt;
+				&lt;span class=error&gt;You know as well as I that you and her are distinct.&lt;/span&gt;
+			&lt;&lt;else&gt;&gt;\
+				&lt;span class=error&gt;$name...&lt;/span&gt;
+				&lt;span class=error&gt;You and Miss Bootz are not one and the same.&lt;/span&gt;
+			&lt;&lt;/if&gt;&gt;\
+
+			&lt;span class=error&gt;Nevertheless, perhaps you&#39;d prefer to use her name?&lt;/span&gt;
+			
+			[[YES|Name Check 2][$name to &quot;Flannery&quot;]] / [[NO|BAD_ZONE_ID][$flanneryYes = false]]
+		&lt;&lt;else&gt;&gt;\
+			&lt;&lt;set $flanneryTimes += 1&gt;&gt;\
+			&lt;&lt;set $flanneryYesTimes += 1&gt;&gt;\
+			&lt;&lt;if $flanneryYesTimes gt 1&gt;&gt;\
+				&lt;span class=error&gt;Would you like to just use &lt;i&gt;her&lt;/i&gt; name, then?&lt;/span&gt;
+
+				[[YES|Name Check 2][$name to &quot;Flannery&quot;]] / [[NO|BAD_ZONE_ID][$renameTimes += 1]]
+			&lt;&lt;else&gt;&gt;\
+				&lt;span class=error&gt;I didn&#39;t ask what her name was.&lt;/span&gt;
+				&lt;span class=error&gt;What is &lt;i&gt;your&lt;/i&gt; name?&lt;/span&gt;
+				
+				&quot;&quot;&quot;&gt;&quot;&quot;&quot; &lt;&lt;textbox &quot;$name&quot; &quot;&quot; &quot;Name Check&quot; autofocus&gt;&gt;
+			&lt;&lt;/if&gt;&gt;
+		&lt;&lt;/if&gt;&gt;\
+	&lt;&lt;elseif $flanneryTimes gt 0&gt;&gt;\
+		&lt;&lt;set $flanneryTimes to 0&gt;&gt;\
+		&lt;span class=error&gt;&quot;$name&quot; you say...&lt;/span&gt;
+		&lt;&lt;if _familiarName &amp;&amp; $renameTimes gt 2 &amp;&amp; $playful is false&gt;&gt;\
+			&lt;&lt;set $playful to true&gt;&gt;\
+			
+			&lt;span class=error&gt;You&#39;re playing a game with me, aren&#39;t you?&lt;/span&gt;
+			&lt;span class=error&gt;A game, within a game.&lt;/span&gt;
+			&lt;span class=error&gt;...within another game, I suppose.&lt;/span&gt;
+		
+			&lt;span class=error&gt;I&#39;m happy that you&#39;re enjoying yourself.&lt;/span&gt;
+		&lt;&lt;else&gt;&gt;\
+			&lt;span class=error&gt;I suspect you&#39;re being cute with me.&lt;/span&gt;
+		&lt;&lt;/if&gt;&gt;\
+
+		&lt;span class=error&gt;Still, is that what you wish to be called?&lt;/span&gt;
+
+	[[YES|Name Check 2]] / [[NO|BAD_ZONE_ID][$renameTimes += 1]]
+	&lt;&lt;else&gt;&gt;\
+		&lt;&lt;if _familiarName&gt;&gt;\
+			&lt;span class=error&gt; You&#39;re referring to Miss Bootz, presumably?&lt;/span&gt;
+		&lt;&lt;else&gt;&gt;\
+			&lt;span class=error&gt;&lt;&lt;if _upperNames.includesAny(_flanneryNames)&gt;&gt; Flannery&lt;&lt;/if&gt;&gt;&lt;&lt;if _upperNames.includesAny(_overeasyNames)&gt;&gt; Over-Easy&lt;&lt;/if&gt;&gt;&lt;&lt;if _upperNames.includesAny(_bootzNames)&gt;&gt; Bootz&lt;&lt;/if&gt;&gt;?&lt;/span&gt;
+			&lt;span class=error&gt; As in Flannery &quot;Over-Easy&quot; Bootz III?&lt;/span&gt;
+		&lt;&lt;/if&gt;&gt;\
+		
+		[[YES|Name Check][$flanneryYes to true]] / [[NO|Name Check][$flanneryTimes += 1]]
+	&lt;&lt;/if&gt;&gt;\
+&lt;&lt;elseif _upperNames.includesAny(_cuteNames)&gt;&gt;\
+	&lt;span class=error&gt;&quot;$name&quot;, eh?&lt;/span&gt;
+	&lt;&lt;if _familiarName &amp;&amp; $renameTimes gt 2 &amp;&amp; $playful is false&gt;&gt;\
+		&lt;&lt;set $playful to true&gt;&gt;\
+		
+		&lt;span class=error&gt;You&#39;re playing a game with me, aren&#39;t you?&lt;/span&gt;
+		&lt;span class=error&gt;A game, within a game.&lt;/span&gt;
+		&lt;span class=error&gt;...within another game, I suppose.&lt;/span&gt;
+
+		&lt;span class=error&gt;I&#39;m happy that you&#39;re enjoying yourself.&lt;/span&gt;
+	&lt;&lt;else&gt;&gt;\
+		&lt;span class=error&gt;I suspect you&#39;re being cute with me.&lt;/span&gt;
+	&lt;&lt;/if&gt;&gt;\
+		
+	&lt;span class=error&gt;Is this how you&#39;d like me to address you, though?&lt;/span&gt;
+		
+	[[YES|Name Check 2]] / [[NO|BAD_ZONE_ID][$renameTimes += 1]]
+&lt;&lt;else&gt;&gt;\
+	&lt;&lt;if $renameTimes gt 5&gt;&gt;\
+		&lt;span class=error&gt;&quot;$name&quot;?&lt;/span&gt;
+		&lt;&lt;if _familiarName&gt;&gt;\
+			&lt;span class=error&gt;Another familiar one.&lt;/span&gt;
+		&lt;&lt;/if&gt;&gt;\
+	&lt;&lt;elseif $renameTimes gt 3&gt;&gt;\
+		&lt;span class=error&gt;&quot;$name,&quot; is it?&lt;/span&gt;
+		&lt;&lt;if _familiarName&gt;&gt;\
+			&lt;span class=error&gt;That sounds familiar.&lt;/span&gt;
+		&lt;&lt;/if&gt;&gt;\
+		&lt;span class=error&gt;Perhaps this is what you&#39;d like to be called?&lt;/span&gt;
+	&lt;&lt;elseif $renameTimes gt 1&gt;&gt;\
+		&lt;span class=error&gt;Ah, &quot;$name.&quot;&lt;/span&gt;
+		&lt;&lt;if _familiarName&gt;&gt;\
+			&lt;span class=error&gt;The similarity is, perhaps, intentional.&lt;/span&gt;
+		&lt;&lt;/if&gt;&gt;\
+		&lt;span class=error&gt;Is that what I should call you?&lt;/span&gt;
+	&lt;&lt;else&gt;&gt;\
+		&lt;span class=error&gt;&quot;$name?&quot;&lt;/span&gt;
+		&lt;&lt;if _familiarName&gt;&gt;\
+			&lt;span class=error&gt;Not so different than before, it seems.&lt;/span&gt;
+		&lt;&lt;/if&gt;&gt;\
+		&lt;span class=error&gt;That is your name?&lt;/span&gt;
+	&lt;&lt;/if&gt;&gt;\
+
+	[[YES|Name Check 2]] / [[NO|BAD_ZONE_ID][$renameTimes += 1]]
+&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="27" name="Name Check 2" tags="" position="450,800" size="100,100">&lt;&lt;set _subnames to $name.split(&quot; &quot;)&gt;&gt;&lt;&lt;set _maxLength to _subnames.length - 1&gt;&gt;&lt;&lt;if ndef $subnameID&gt;&gt;&lt;&lt;set $subnameID to 0&gt;&gt;&lt;&lt;/if&gt;&gt;\
+\
+&lt;&lt;if _subnames.length gt 1&gt;&gt;\
+	&lt;&lt;if $subnameID lt _subnames.length&gt;&gt;\
+		&lt;&lt;set _subname to _subnames[$subnameID].replace(/[&#39;!&quot;#$%&amp;\\&#39;()\*+,\\.\/:;&lt;=&gt;?@\[\\\]\^&#96;{|}~&#39;]/g,&quot;&quot;).toLowerCase().toUpperFirst()&gt;&gt;\
+		\
+		&lt;&lt;switch $subnameID&gt;&gt;\
+		&lt;&lt;case 0&gt;&gt;\
+			&lt;span class=error&gt;May I call you _subname for short?&lt;/span&gt;
+		&lt;&lt;case _maxLength&gt;&gt;\
+			&lt;span class=error&gt;_subname, then?&lt;/span&gt;
+		&lt;&lt;case 1&gt;&gt;\
+			&lt;span class=error&gt;How about _subname?&lt;/span&gt;
+		&lt;&lt;case 2&gt;&gt;\
+			&lt;span class=error&gt;Maybe _subname?&lt;/span&gt;
+		&lt;&lt;default&gt;&gt;\
+			&lt;span class=error&gt;..._subname?&lt;/span&gt;
+		&lt;&lt;/switch&gt;&gt;\
+
+		[[YES|Name Check 3][$name to _subname]] / [[NO|Name Check 2][$subnameID += 1]]
+	&lt;&lt;else&gt;&gt;\
+		&lt;span class=error&gt;Very well.&lt;/span&gt;
+		&lt;span class=error&gt;You prefer $name?&lt;/span&gt;
+\
+		[[YES|Name Check 3]] / [[NO|BAD_ZONE_ID][$renameTimes += 1]]
+	&lt;&lt;/if&gt;&gt;\
+&lt;&lt;else&gt;&gt;\
+	&lt;&lt;goto &quot;Name Check 3&quot;&gt;&gt;\
+&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="28" name="Name Check 3" tags="" position="350,950" size="100,100">&lt;&lt;set $nameSet to true&gt;&gt;\
+&lt;&lt;set $memories.name to $name&gt;&gt;\
+\
+&lt;&lt;set _upperName to $name.toUpperCase()&gt;&gt;\
+&lt;&lt;set _upperNames to _upperName.split(&quot; &quot;)&gt;&gt;\
+&lt;&lt;if _upperNames.includesAny(_fullNames)&gt;&gt;\
+	&lt;&lt;set $flannery to &quot;Other Flannery&quot;&gt;&gt;\
+&lt;&lt;else&gt;&gt;\
+	&lt;&lt;set $flannery to &quot;Flannery&quot;&gt;&gt;\
+&lt;&lt;/if&gt;&gt;\
+\
+&lt;span class=&quot;error&quot;&gt;$name it is, then.&lt;/span&gt;
+&lt;&lt;switch $renameTimes&gt;&gt;\
+&lt;&lt;case 0 1&gt;&gt;\
+&lt;&lt;case 2 3&gt;&gt;\
+	&lt;span class=&quot;error&quot;&gt;That was a... relatively painless decision.&lt;/span&gt;
+&lt;&lt;case 4 5&gt;&gt;\
+	&lt;span class=&quot;error&quot;&gt;Though you seem to have quite a few aliases.&lt;/span&gt;
+&lt;&lt;case 6 7 8 9&gt;&gt;\
+	&lt;span class=&quot;error&quot;&gt;I am astonished by your indecision.&lt;/span&gt;
+	&lt;span class=&quot;error&quot;&gt;But it &lt;i&gt;was&lt;/i&gt; a novel way to spend time.&lt;/span&gt;
+&lt;&lt;default&gt;&gt;
+	&lt;span class=&quot;error&quot;&gt;Finally, the long ordeal is over.&lt;/span&gt;
+	&lt;span class=&quot;error&quot;&gt;But it &lt;i&gt;was&lt;/i&gt; a novel way to spend time.&lt;/span&gt;
+&lt;&lt;/switch&gt;&gt;\
+
+TO BE CONTINUED:
+
+DEBUG DEETS:
+Shortened Name: $name
+Total Renames: $renameTimes
+</tw-passagedata><tw-passagedata pid="29" name="Questions" tags="" position="550,950" size="100,100">&lt;&lt;run UIBar.destroy()&gt;&gt;\
+&lt;iframe class=&quot;boxGlow&quot; src=&quot;https://docs.google.com/forms/d/e/1FAIpQLSdg_O3ptwjvglkNmruabpm3bRobjeJmdE_xqUFpha9fYbmd7g/viewform?embedded=true&quot; width=&quot;600px&quot; height=&quot;500px&quot; frameborder=&quot;0&quot; marginheight=&quot;0&quot; marginwidth=&quot;auto&quot;&gt;Loading...&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="30" name="Untitled Passage" tags="" position="700,950" size="100,100">[[Questions]]</tw-passagedata><tw-passagedata pid="31" name="EE_Fridge" tags="" position="700,500" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;&lt;&lt;remember $noFridge = true&gt;&gt;\
+You open the kitchen fridge with a click, and are met by a burst of light shining from within. Your eyes adjust, as you and explore it&#39;s contents.
+
+Up top and in front, a [[&lt;OPTION:Carton_Milk&gt;|Milk]] from Biggy&#39;s Barn FoodCo.
+
+A small plastic bottle of [[&lt;OPTION:Juice_Mixed&gt;|Juice]] is tucked away nearby.
+
+Below that, you spy a few slices of leftover [[&lt;OPTION:Pizza_Cold_Meat&gt;|Pizza]] and [[&lt;OPTION:Pizza_Cold_Veggie&gt;|Pizza]], sealed inside a large plastic zip bag.
+
+Next to that, a hefty jar of [[&lt;OPTION:Pickle_Cucumber&gt;|Pickle]] glistens briny green in the fridgelight.
+
+Lastly, there&#39;s a bagged loaf of [[&lt;OPTION:Sliced_Bread&gt;|Bread]], for some reason? Who keeps that in the fridge? Breadboxes exist for a reason!
+
+[[RETURN|EE_Kitchen]]</tw-passagedata><tw-passagedata pid="32" name="Milk" tags="" position="700,650" size="100,100">The packaging features a bipedal cow in a business suit giving a happy hoofs up. Behind them, a line of non-descript and non-bipedal cows walk single flie into an open barn.
+
+Looks like it&#39;s only &lt;COUNT:Time_Before/Past&gt; it&#39;s expiration date. If you had to guess, it&#39;s... probably still good? You pour a glass, and add it to your Inventory.
+
+&lt;span class=&quot;error&quot;&gt;ACCESS VIOLATION &lt;/span&gt;
+&lt;span class=&quot;error&quot;&gt;INVALID PAWN ID: &quot;Undefined&quot; &lt;/span&gt;
+&lt;span class=&quot;error&quot;&gt;NULL REFERENCE AT: &quot;pawn_data.Inventory&quot; &lt;/span&gt;
+
+[[RETURN|EE_Fridge]]</tw-passagedata><tw-passagedata pid="33" name="Juice" tags="" position="1000,800" size="100,100">Another Biggy&#39;s Barn FoodCo product. The label proudly promises &quot;A Percentage of Real Fruit in Every Sip,&quot; and that every ingredient is &quot;Scientifically Organic.&quot;
+
+Regardless of whatever that&#39;s supposed to mean, you unscrew the cap of the bottle, pour yourself a glass, and add it to your inventory.
+
+&lt;span class=&quot;error&quot;&gt;ACCESS VIOLATION &lt;/span&gt;
+&lt;span class=&quot;error&quot;&gt;INVALID PAWN ID: &quot;Undefined&quot; &lt;/span&gt;
+&lt;span class=&quot;error&quot;&gt;NULL REFERENCE AT: &quot;pawn_data.Inventory&quot; &lt;/span&gt;
+
+[[RETURN|EE_Fridge]]</tw-passagedata><tw-passagedata pid="34" name="Pizza" tags="" position="850,800" size="100,100">You&#39;ve never seen someone keep pizza in a bag before. Maybe it&#39;s to keep from having to cram an awkwardly large, flat box inside? Or is it to keep the slices from drying out into triangular pizza croutons?
+
+You take out a slice of &lt;TOGGLE:Pizza_Type_Desc&gt;. You&#39;ll have to test it for freshness later, but for now, you put it in your Inventory.
+
+&lt;span class=&quot;error&quot;&gt;ACCESS VIOLATION &lt;/span&gt;
+&lt;span class=&quot;error&quot;&gt;INVALID PAWN ID: &quot;Undefined&quot; &lt;/span&gt;
+&lt;span class=&quot;error&quot;&gt;NULL REFERENCE AT: &quot;pawn_data.Inventory&quot; &lt;/span&gt;
+
+[[RETURN|EE_Fridge]]</tw-passagedata><tw-passagedata pid="35" name="Pickle" tags="" position="850,650" size="100,100">On the pickle jar, you see the ragged remnants of a torn-off label. For a second, you wonder if that means they&#39;re homemade, or just hapless victims of flagrant marketting vandalism.
+
+There&#39;s no indication if they&#39;re sweet or sour, but you can think of one way to find out. You unscrew the pickle jar, take one out, and add it to your inventory.
+
+&lt;span class=&quot;error&quot;&gt;ACCESS VIOLATION &lt;/span&gt;
+&lt;span class=&quot;error&quot;&gt;INVALID PAWN ID: &quot;Undefined&quot; &lt;/span&gt;
+&lt;span class=&quot;error&quot;&gt;NULL REFERENCE AT: &quot;pawn_data.Inventory&quot; &lt;/span&gt;
+
+[[RETURN|EE_Fridge]]</tw-passagedata><tw-passagedata pid="36" name="Bread" tags="" position="1000,650" size="100,100">No. The line must be drawn here, and no farther.
+
+You find the idea of Fridge Bread too unnatural and unsettling to even &lt;i&gt;consider&lt;/i&gt; adding it to your Inventory.
+
+[[RETURN|EE_Fridge]]</tw-passagedata><tw-passagedata pid="37" name="NoFridge" tags="" position="700,800" size="100,100">&lt;span class=error&gt;NULL REFERENCE: &quot;MENU:Kitchen_Fridge&quot; &lt;/span&gt;
+&lt;span class=error&gt;MENU OBJECT &quot;Kitchen_Fridge&quot; DOES NOT EXIST &lt;/span&gt;
+
+[[RETURN|EE_Kitchen]]</tw-passagedata><tw-passagedata pid="38" name="Abort" tags="" position="100,500" size="100,100">&lt;&lt;if $nameSet&gt;&gt;\
+	&lt;span class=&quot;error&quot;&gt;Thank you, $name.&lt;/span&gt;
+&lt;&lt;else&gt;&gt;\
+	&lt;span class=&quot;error&quot;&gt;Thank you.&lt;/span&gt;
+&lt;&lt;/if&gt;&gt;\
+
+[[RETURN|$location]]</tw-passagedata><tw-passagedata pid="39" name="Initialize" tags="" position="200,950" size="100,100">&lt;&lt;set $memories to setup.loadState0()&gt;&gt;\
+\
+&lt;&lt;if ndef $memories&gt;&gt;\
+UNDEFINED MEMS
+	&lt;&lt;set $memories to {
+		name: &quot;&quot;,
+		reset: false
+	}&gt;&gt;\
+	&lt;&lt;run setup.saveState0()&gt;&gt;\
+&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if $memories is null&gt;&gt;\
+NULL MEMS
+	&lt;&lt;set $memories to {
+		name: &quot;&quot;,
+		reset: false
+	}&gt;&gt;\
+	&lt;&lt;run setup.saveState0()&gt;&gt;\
+&lt;&lt;/if&gt;&gt;\
+
+&lt;&lt;goto EE_Entrance&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="Load" tags="" position="50,950" size="100,100">&lt;&lt;set $memories to setup.loadState0()&gt;&gt;\
+\
+Loading Memories:
+Name: &quot;&lt;&lt;print $memories.name&gt;&gt;&quot;
+Reset? &lt;&lt;print $memories.reset&gt;&gt;
+
+[[RETURN|Memories]]</tw-passagedata><tw-passagedata pid="41" name="Erase" tags="" position="50,650" size="100,100">&lt;&lt;run setup.eraseState0()&gt;&gt;\
+
+[[RETURN|Memories]]</tw-passagedata><tw-passagedata pid="42" name="Memories" tags="" position="50,1100" size="100,100">Memory Management:
+
+Memories:
+&lt;&lt;if ndef $memories&gt;&gt;\
+	Memories are Undefined!
+\
+&lt;&lt;elseif $memories is null&gt;&gt;\
+	Memories are Null!
+\
+&lt;&lt;else&gt;&gt;\
+  &lt;&lt;if ndef $memories.name&gt;&gt;\
+	  Name is Undefined!
+  &lt;&lt;elseif $memories.name is null&gt;&gt;\
+	  Name is Null!
+  &lt;&lt;else&gt;&gt;\
+	  Name: &quot;&lt;&lt;print $memories.name&gt;&gt;&quot;
+  &lt;&lt;/if&gt;&gt;\
+\
+  &lt;&lt;if ndef $memories.reset&gt;&gt;\
+	  Reset is Undefined!
+  &lt;&lt;elseif $memories.reset is null&gt;&gt;\
+	  Reset is Null!
+  &lt;&lt;else&gt;&gt;\
+	  Reset? &lt;&lt;print $memories.reset&gt;&gt;
+  &lt;&lt;/if&gt;&gt;\
+&lt;&lt;/if&gt;&gt;\
+
+Local:
+&lt;&lt;if ndef $name&gt;&gt;\
+  Name is Undefined!
+&lt;&lt;elseif $name is null&gt;&gt;\
+  Name is Null!
+&lt;&lt;else&gt;&gt;\
+  Name: &quot;$name&quot;
+&lt;&lt;/if&gt;&gt;\
+
+&lt;&lt;if ndef $reset&gt;&gt;\
+  Reset is Undefined!
+&lt;&lt;elseif $reset is null&gt;&gt;\
+  Reset is Null!
+&lt;&lt;else&gt;&gt;\
+  Reset? $reset
+&lt;&lt;/if&gt;&gt;\
+
+ [[Load]] / [[Edit]] / [[Save]] / [[Erase]]
+ 
+ Back to: [[$location]]?
+ Back to: [[Initialize]]?
+ Back to: [[EE_Entrance]]?
+ Back to: [[BAD_ZONE_ID]]?
+</tw-passagedata><tw-passagedata pid="43" name="Edit" tags="" position="200,1100" size="100,100">STORY DATA:
+Edit Local Name? ($name)
+&lt;&lt;textbox &quot;$name&quot; $name &quot;Edit&quot;&gt;&gt;
+
+Edit Local Reset? ($reset)
+[[True|Edit][$reset = true]] | [[False|Edit][$reset = false]]
+
+MEMORY DATA:
+Edit Memory Name? (&lt;&lt;print $memories.name&gt;&gt;)
+&lt;&lt;textbox &quot;$memories.name&quot; $memories.name &quot;Edit&quot;&gt;&gt;
+
+Edit Memory Reset? (&lt;&lt;print $memories.reset&gt;&gt;)
+[[True|Edit][$memories.reset = true]] | [[False|Edit][$memories.reset = false]]
+
+[[RETURN|Memories]]</tw-passagedata></tw-storydata></div>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
 	if(document.documentElement.getAttribute("data-init")==="loading"){!function(window,document,jQuery,undefined){"use strict";function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,r=Array(e.length);t<e.length;t++)r[t]=e[t];return r}return Array.from(e)}var _createClass=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),_slicedToArray=function(){function e(e,t){var r=[],n=!0,a=!1,i=undefined;try{for(var o,s=e[Symbol.iterator]();!(n=(o=s.next()).done)&&(r.push(o.value),!t||r.length!==t);n=!0);}catch(e){a=!0,i=e}finally{try{!n&&s.return&&s.return()}finally{if(a)throw i}}return r}return function(t,r){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,r);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Alert=function(){function e(e,t,r,n){var a="fatal"===e,i="Apologies! "+(a?"A fatal":"An")+" error has occurred.";i+=a?" Aborting.":" You may be able to continue, but some parts may not work properly.",null==t&&null==r||(i+="\n\nError",null!=t&&(i+=" ["+t+"]"),i+=null!=r?": "+r.replace(/^(?:(?:uncaught\s+(?:exception:\s+)?)?error:\s+)+/i,"")+".":": unknown error."),"object"===("undefined"==typeof n?"undefined":_typeof(n))&&n.stack&&(i+="\n\nStack Trace:\n"+n.stack),window.alert(i)}function t(t,r,n){e(null,t,r,n)}function r(t,r,n){e("fatal",t,r,n)}return function(e){window.onerror=function(n,a,i,o,s){"complete"===document.readyState?t(null,n,s):(r(null,n,s),window.onerror=e,"function"==typeof window.onerror&&window.onerror.apply(this,arguments))}}(window.onerror),Object.freeze(Object.defineProperties({},{error:{value:t},fatal:{value:r}}))}();!function(){function e(e,t){var a=String(e);switch(t){case"start":return a&&r.test(a)?a.replace(r,""):a;case"end":return a&&n.test(a)?a.replace(n,""):a;default:throw new Error('_trimFrom called with incorrect where parameter value: "'+t+'"')}}function t(e,t){var r=Number.parseInt(e,10)||0;if(r<1)return"";var n="undefined"==typeof t?"":String(t);for(""===n&&(n=" ");n.length<r;){var a=n.length,i=r-a;n+=a>i?n.slice(0,i):n}return n.length>r&&(n=n.slice(0,r)),n}var r=/^[\s\u00A0\uFEFF][\s\u00A0\uFEFF]*/,n=/[\s\u00A0\uFEFF][\s\u00A0\uFEFF]*$/;Array.prototype.includes||Object.defineProperty(Array.prototype,"includes",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includes called on null or undefined");if(0===arguments.length)return!1;var e=this.length>>>0;if(0===e)return!1;var t=arguments[0],r=Number(arguments[1])||0;for(r<0&&(r=Math.max(0,e+r));r<e;++r){var n=this[r];if(t===n||t!==t&&n!==n)return!0}return!1}}),String.prototype.padStart||Object.defineProperty(String.prototype,"padStart",{configurable:!0,writable:!0,value:function(e,r){if(null==this)throw new TypeError("String.prototype.padStart called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(e,10);return i<=a?n:t(i-a,r)+n}}),String.prototype.padEnd||Object.defineProperty(String.prototype,"padEnd",{configurable:!0,writable:!0,value:function(e,r){if(null==this)throw new TypeError("String.prototype.padEnd called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(e,10);return i<=a?n:n+t(i-a,r)}}),String.prototype.trimStart||Object.defineProperty(String.prototype,"trimStart",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimStart called on null or undefined");return e(this,"start")}}),String.prototype.trimLeft||Object.defineProperty(String.prototype,"trimLeft",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimLeft called on null or undefined");return e(this,"start")}}),String.prototype.trimEnd||Object.defineProperty(String.prototype,"trimEnd",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimEnd called on null or undefined");return e(this,"end")}}),String.prototype.trimRight||Object.defineProperty(String.prototype,"trimRight",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimRight called on null or undefined");return e(this,"end")}})}(),function(){function _random(){var e=void 0,t=void 0;switch(arguments.length){case 0:throw new Error("_random called with insufficient parameters");case 1:e=0,t=arguments[0];break;default:e=arguments[0],t=arguments[1]}if(e>t){var r=[t,e];e=r[0],t=r[1]}return Math.floor(_nativeMathRandom()*(t-e+1))+e}function _randomIndex(e,t){var r=void 0,n=void 0;switch(t.length){case 1:r=0,n=e-1;break;case 2:r=0,n=Math.trunc(t[1]);break;default:r=Math.trunc(t[1]),n=Math.trunc(t[2])}return Number.isNaN(r)?r=0:!Number.isFinite(r)||r>=e?r=e-1:r<0&&(r=e+r,r<0&&(r=0)),Number.isNaN(n)?n=0:!Number.isFinite(n)||n>=e?n=e-1:n<0&&(n=e+n,n<0&&(n=e-1)),_random(r,n)}function _getCodePointStartAndEnd(e,t){var r=e.charCodeAt(t);if(Number.isNaN(r))return{char:"",start:-1,end:-1};if(r<55296||r>57343)return{char:e.charAt(t),start:t,end:t};if(r>=55296&&r<=56319){var n=t+1;if(n>=e.length)throw new Error("high surrogate without trailing low surrogate");var a=e.charCodeAt(n);if(a<56320||a>57343)throw new Error("high surrogate without trailing low surrogate");return{char:e.charAt(t)+e.charAt(n),start:t,end:n}}if(0===t)throw new Error("low surrogate without leading high surrogate");var i=t-1,o=e.charCodeAt(i);if(o<55296||o>56319)throw new Error("low surrogate without leading high surrogate");return{char:e.charAt(i)+e.charAt(t),start:i,end:t}}var _nativeMathRandom=Math.random;Object.defineProperty(Array,"random",{configurable:!0,writable:!0,value:function(e){if(null==e||"object"!==("undefined"==typeof e?"undefined":_typeof(e))||!Object.prototype.hasOwnProperty.call(e,"length"))throw new TypeError("Array.random array parameter must be an array or array-lke object");var t=e.length>>>0;if(0!==t){var r=0===arguments.length?_random(0,t-1):_randomIndex(t,Array.prototype.slice.call(arguments,1));return e[r]}}}),Object.defineProperty(Array.prototype,"concatUnique",{configurable:!0,writable:!0,value:function e(){if(null==this)throw new TypeError("Array.prototype.concatUnique called on null or undefined");var t=Array.from(this);if(0===arguments.length)return t;var r=Array.prototype.reduce.call(arguments,function(e,t){return e.concat(t)},[]),n=r.length;if(0===n)return t;for(var a=Array.prototype.indexOf,i=Array.prototype.push,o=0;o<n;++o){var e=r[o];a.call(t,e)===-1&&i.call(t,e)}return t}}),Object.defineProperty(Array.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.count called on null or undefined");for(var e=Array.prototype.indexOf,t=arguments[0],r=Number(arguments[1])||0,n=0;(r=e.call(this,t,r))!==-1;)++n,++r;return n}}),Object.defineProperty(Array.prototype,"delete",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.delete called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.indexOf,r=Array.prototype.push,n=Array.prototype.splice,a=Array.prototype.concat.apply([],arguments),i=[],o=0,s=a.length;o<s;++o)for(var u=a[o],l=0;(l=t.call(this,u,l))!==-1;)r.apply(i,n.call(this,l,1));return i}}),Object.defineProperty(Array.prototype,"deleteAt",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.deleteAt called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.splice,r=[].concat(_toConsumableArray(new Set(Array.prototype.concat.apply([],arguments).map(function(t){return t<0?Math.max(0,e+t):t})).values())),n=[].concat(_toConsumableArray(r)).sort(function(e,t){return t-e}),a=[],i=0,o=r.length;i<o;++i)a[i]=this[r[i]];for(var s=0,u=n.length;s<u;++s)t.call(this,n[s],1);return a}}),Object.defineProperty(Array.prototype,"flatten",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.flatten called on null or undefined");return Array.prototype.reduce.call(this,function(e,t){return e.concat(Array.isArray(t)?t.flatten():t)},[])}}),Object.defineProperty(Array.prototype,"includesAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAll called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAll.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(!Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!1;return!0}}),Object.defineProperty(Array.prototype,"includesAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAny called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAny.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!0;return!1}}),Object.defineProperty(Array.prototype,"pluck",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.pluck called on null or undefined");var e=this.length>>>0;if(0!==e){var t=0===arguments.length?_random(0,e-1):_randomIndex(e,[].concat(Array.prototype.slice.call(arguments)));return Array.prototype.splice.call(this,t,1)[0]}}}),Object.defineProperty(Array.prototype,"pluckMany",{configurable:!0,writable:!0,value:function(e){if(null==this)throw new TypeError("Array.prototype.pluckMany called on null or undefined");var t=this.length>>>0;if(0===t)return[];var r=Math.trunc(e);if(!Number.isInteger(r))throw new Error("Array.prototype.pluckMany want parameter must be an integer");if(r<1)return[];r>t&&(r=t);var n=Array.prototype.splice,a=[],i=t-1;do a.push(n.call(this,_random(0,i--),1)[0]);while(a.length<r);return a}}),Object.defineProperty(Array.prototype,"pushUnique",{configurable:!0,writable:!0,value:function e(){if(null==this)throw new TypeError("Array.prototype.pushUnique called on null or undefined");var t=arguments.length;if(0===t)return this.length>>>0;for(var r=Array.prototype.indexOf,n=Array.prototype.push,a=0;a<t;++a){var e=arguments[a];r.call(this,e)===-1&&n.call(this,e)}return this.length>>>0}}),Object.defineProperty(Array.prototype,"random",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.random called on null or undefined");var e=this.length>>>0;if(0!==e){var t=0===arguments.length?_random(0,e-1):_randomIndex(e,[].concat(Array.prototype.slice.call(arguments)));return this[t]}}}),Object.defineProperty(Array.prototype,"randomMany",{configurable:!0,writable:!0,value:function(e){if(null==this)throw new TypeError("Array.prototype.randomMany called on null or undefined");var t=this.length>>>0;if(0===t)return[];var r=Math.trunc(e);if(!Number.isInteger(r))throw new Error("Array.prototype.randomMany want parameter must be an integer");if(r<1)return[];r>t&&(r=t);var n=new Map,a=[],i=t-1;do{var o=void 0;do o=_random(0,i);while(n.has(o));n.set(o,!0),a.push(this[o])}while(a.length<r);return a}}),Object.defineProperty(Array.prototype,"shuffle",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.shuffle called on null or undefined");var e=this.length>>>0;if(0===e)return this;for(var t=e-1;t>0;--t){var r=Math.floor(_nativeMathRandom()*(t+1));if(t!==r){var n=this[t];this[t]=this[r],this[r]=n}}return this}}),Object.defineProperty(Array.prototype,"unshiftUnique",{configurable:!0,writable:!0,value:function e(){if(null==this)throw new TypeError("Array.prototype.unshiftUnique called on null or undefined");var t=arguments.length;if(0===t)return this.length>>>0;for(var r=Array.prototype.indexOf,n=Array.prototype.unshift,a=0;a<t;++a){var e=arguments[a];r.call(this,e)===-1&&n.call(this,e)}return this.length>>>0}}),Object.defineProperty(Function.prototype,"partial",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Function.prototype.partial called on null or undefined");var e=Array.prototype.slice,t=this,r=e.call(arguments,0);return function(){for(var n=[],a=0,i=0;i<r.length;++i)n.push(r[i]===undefined?arguments[a++]:r[i]);return t.apply(this,n.concat(e.call(arguments,a)))}}}),Object.defineProperty(Math,"clamp",{configurable:!0,writable:!0,value:function e(t,r,n){var e=Number(t);return Number.isNaN(e)?NaN:e.clamp(r,n)}}),Object.defineProperty(Math,"easeInOut",{configurable:!0,writable:!0,value:function(e){return 1-(Math.cos(Number(e)*Math.PI)+1)/2}}),Object.defineProperty(Number.prototype,"clamp",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Number.prototype.clamp called on null or undefined");if(2!==arguments.length)throw new Error("Number.prototype.clamp called with an incorrect number of parameters");var e=Number(arguments[0]),t=Number(arguments[1]);if(e>t){var r=[t,e];e=r[0],t=r[1]}return Math.min(Math.max(this,e),t)}}),RegExp.escape||!function(){var e=/[\\^$*+?.()|[\]{}]/g,t=new RegExp(e.source);Object.defineProperty(RegExp,"escape",{configurable:!0,writable:!0,value:function(r){var n=String(r);return n&&t.test(n)?n.replace(e,"\\$&"):n}})}(),function(){var e=/{(\d+)(?:,([+-]?\d+))?}/g,t=new RegExp(e.source);Object.defineProperty(String,"format",{configurable:!0,writable:!0,value:function(r){function n(e,t,r){if(!t)return e;var n=Math.abs(t)-e.length;if(n<1)return e;var a=String(r).repeat(n);return t<0?e+a:a+e}if(arguments.length<2)return 0===arguments.length?"":r;var a=2===arguments.length&&Array.isArray(arguments[1])?[].concat(_toConsumableArray(arguments[1])):Array.prototype.slice.call(arguments,1);return 0===a.length?r:t.test(r)?(e.lastIndex=0,r.replace(e,function(e,t,r){var i=a[t];if(null==i)return"";for(;"function"==typeof i;)i=i();switch("undefined"==typeof i?"undefined":_typeof(i)){case"string":break;case"object":i=JSON.stringify(i);break;default:i=String(i)}return n(i,r?Number.parseInt(r,10):0," ")})):r}})}(),Object.defineProperty(String.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.contains called on null or undefined");return String.prototype.indexOf.apply(this,arguments)!==-1}}),Object.defineProperty(String.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.count called on null or undefined");var e=String(arguments[0]||"");if(""===e)return 0;for(var t=String.prototype.indexOf,r=e.length,n=Number(arguments[1])||0,a=0;(n=t.call(this,e,n))!==-1;)++a,n+=r;return a}}),Object.defineProperty(String.prototype,"splice",{configurable:!0,writable:!0,value:function(e,t,r){if(null==this)throw new TypeError("String.prototype.splice called on null or undefined");var n=this.length>>>0;if(0===n)return"";var a=Number(e);Number.isSafeInteger(a)?a<0&&(a+=n,a<0&&(a=0)):a=0,a>n&&(a=n);var i=Number(t);(!Number.isSafeInteger(i)||i<0)&&(i=0);var o=this.slice(0,a);return"undefined"!=typeof r&&(o+=r),a+i<n&&(o+=this.slice(a+i)),o}}),Object.defineProperty(String.prototype,"splitOrEmpty",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.splitOrEmpty called on null or undefined");return""===String(this)?[]:String.prototype.split.apply(this,arguments)}}),Object.defineProperty(String.prototype,"toLocaleUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toLocaleUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return n===-1?"":r.toLocaleUpperCase()+e.slice(n+1)}}),Object.defineProperty(String.prototype,"toUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return n===-1?"":r.toUpperCase()+e.slice(n+1)}}),Object.defineProperty(Date.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:date)",this.toISOString()]}}),Object.defineProperty(Function.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)","("+this.toString()+")"]}}),Object.defineProperty(Map.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:map)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(RegExp.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)",this.toString()]}}),Object.defineProperty(Set.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:set)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(JSON,"reviveWrapper",{configurable:!0,writable:!0,value:function(e,t){if("string"!=typeof e)throw new TypeError("JSON.reviveWrapper code parameter must be a string");return["(revive:eval)",[e,t]]}}),Object.defineProperty(JSON,"_real_parse",{value:JSON.parse}),Object.defineProperty(JSON,"parse",{configurable:!0,writable:!0,value:function value(text,reviver){return JSON._real_parse(text,function(key,val){var value=val;if(Array.isArray(value)&&2===value.length)switch(value[0]){case"(revive:set)":value=new Set(value[1]);break;case"(revive:map)":value=new Map(value[1]);break;case"(revive:date)":value=new Date(value[1]);break;case"(revive:eval)":try{if(Array.isArray(value[1])){var $ReviveData$=value[1][1];value=eval(value[1][0])}else value=eval(value[1])}catch(e){}}else if("string"==typeof value&&"@@revive@@"===value.slice(0,10))try{value=eval(value.slice(10))}catch(e){}if("function"==typeof reviver)try{value=reviver(key,value)}catch(e){}return value})}}),Object.defineProperty(Array.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.contains called on null or undefined");return Array.prototype.includes.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAll called on null or undefined");return Array.prototype.includesAll.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAny called on null or undefined");return Array.prototype.includesAny.apply(this,arguments)}}),Object.defineProperty(String.prototype,"readBracketedList",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.readBracketedList called on null or undefined");for(var e=new RegExp("(?:\\[\\[((?:\\s|\\S)*?)\\]\\])|([^\"'\\s]\\S*)","gm"),t=[],r=void 0;null!==(r=e.exec(this));)r[1]?t.push(r[1]):r[2]&&t.push(r[2]);return t}})}();var Browser=function(){var e=navigator.userAgent.toLowerCase(),t=e.includes("windows phone"),r=Object.freeze({Android:!t&&e.includes("android"),BlackBerry:/blackberry|bb10/.test(e),iOS:!t&&/ip(?:hone|ad|od)/.test(e),Windows:t||e.includes("iemobile"),any:function(){return r.Android||r.BlackBerry||r.iOS||r.Windows}}),n=!r.Windows&&!/khtml|trident|edge/.test(e)&&e.includes("gecko"),a=!e.includes("opera")&&/msie|trident/.test(e),i=a?function(){var t=/(?:msie\s+|rv:)(\d+\.\d)/.exec(e);return t?Number(t[1]):0}():null,o=e.includes("opera")||e.includes(" opr/"),s=o?function(){var t=new RegExp((/khtml|chrome/.test(e)?"opr":"version")+"\\/(\\d+\\.\\d+)"),r=t.exec(e);return r?Number(r[1]):0}():null;return Object.freeze({userAgent:e,isMobile:r,isGecko:n,isIE:a,ieVersion:i,isOpera:o,operaVersion:s})}(),Has=function(){var e=function(){try{return"function"==typeof document.createElement("audio").canPlayType}catch(e){}return!1}(),t=function(){try{return"Blob"in window&&"File"in window&&"FileList"in window&&"FileReader"in window&&!Browser.isMobile.any()&&(!Browser.isOpera||Browser.operaVersion>=15)}catch(e){}return!1}(),r=function(){try{return"geolocation"in navigator&&"function"==typeof navigator.geolocation.getCurrentPosition&&"function"==typeof navigator.geolocation.watchPosition}catch(e){}return!1}(),n=function(){try{return"MutationObserver"in window&&"function"==typeof window.MutationObserver}catch(e){}return!1}(),a=function(){try{return"performance"in window&&"function"==typeof window.performance.now}catch(e){}return!1}();return Object.freeze({audio:e,fileAPI:t,geolocation:r,mutationObserver:n,performance:a})}(),_ref3=function(){function e(t){if("object"!==("undefined"==typeof t?"undefined":_typeof(t))||null==t)return t;if("function"==typeof t.clone)return t.clone(!0);if(t.nodeType&&"function"==typeof t.cloneNode)return t.cloneNode(!0);var r=void 0;return Array.isArray(t)?r=[]:t instanceof Date?r=new Date(t.getTime()):t instanceof Map?(r=new Map,t.forEach(function(t,n){r.set(n,e(t))})):t instanceof RegExp?r=new RegExp(t):t instanceof Set?(r=new Set,t.forEach(function(t){r.add(e(t))})):r=Object.create(Object.getPrototypeOf(t)),Object.keys(t).forEach(function(n){return r[n]=e(t[n])}),r}function t(e){for(var t=document.createDocumentFragment(),r=document.createElement("p"),n=void 0;null!==(n=e.firstChild);){if(n.nodeType===Node.ELEMENT_NODE){var a=n.nodeName.toUpperCase();switch(a){case"BR":if(null!==n.nextSibling&&n.nextSibling.nodeType===Node.ELEMENT_NODE&&"BR"===n.nextSibling.nodeName.toUpperCase()){e.removeChild(n.nextSibling),e.removeChild(n),t.appendChild(r),r=document.createElement("p");continue}if(!r.hasChildNodes()){e.removeChild(n);continue}break;case"ADDRESS":case"ARTICLE":case"ASIDE":case"BLOCKQUOTE":case"CENTER":case"DIV":case"DL":case"FIGURE":case"FOOTER":case"FORM":case"H1":case"H2":case"H3":case"H4":case"H5":case"H6":case"HEADER":case"HR":case"MAIN":case"NAV":case"OL":case"P":case"PRE":case"SECTION":case"TABLE":case"UL":r.hasChildNodes()&&(t.appendChild(r),r=document.createElement("p")),t.appendChild(n);continue}}r.appendChild(n)}r.hasChildNodes()&&t.appendChild(r),e.appendChild(t)}function r(){try{return document.activeElement||null}catch(e){return null}}function n(e,t,r){var n="object"===("undefined"==typeof e?"undefined":_typeof(e))?e:document.getElementById(e);if(null==n)return null;var a=Array.isArray(t)?t:[t];jQuery(n).empty();for(var i=0,o=a.length;i<o;++i)if(Story.has(a[i]))return new Wikifier(n,Story.get(a[i]).processText().trim()),n;if(null!=r){var s=String(r).trim();""!==s&&new Wikifier(n,s)}return n}function a(e,t,r){return jQuery(document.createElement("span")).addClass("error").attr("title",r).text(L10n.get("errorTitle")+": "+(t||"unknown error")).appendTo(e),!1}function i(e,t){var r=i;switch("undefined"==typeof e?"undefined":_typeof(e)){case"number":if(Number.isNaN(e))return t;break;case"object":if(null===e)return t;if(Array.isArray(e))return e.map(function(e){return r(e,t)}).join(", ");if(e instanceof Set)return[].concat(_toConsumableArray(e)).map(function(e){return r(e,t)}).join(", ");if(e instanceof Map){var n=[].concat(_toConsumableArray(e)).map(function(e){return r(e[0],t)+" ⇒ "+r(e[1],t)}).join("; ");return"( "+n+" )"}return e instanceof Date?e.toLocaleString():"function"==typeof e.toString?e.toString():Object.prototype.toString.call(e);case"function":case"undefined":return t}return String(e)}return Object.freeze(Object.defineProperties({},{clone:{value:e},convertBreaks:{value:t},safeActiveElement:{value:r},setPageElement:{value:n},throwError:{value:a},toStringOrDefault:{value:i}}))}(),clone=_ref3.clone,convertBreaks=_ref3.convertBreaks,safeActiveElement=_ref3.safeActiveElement,setPageElement=_ref3.setPageElement,throwError=_ref3.throwError,toStringOrDefault=_ref3.toStringOrDefault;!function(){function e(e){13!==e.which&&32!==e.which||(e.preventDefault(),jQuery(safeActiveElement()||this).trigger("click"))}function t(e){return function(){var t=jQuery(this);t.is("[aria-pressed]")&&t.attr("aria-pressed","true"===t.attr("aria-pressed")?"false":"true"),e.apply(this,arguments)}}function r(e){return t(function(){jQuery(this).off(".aria-clickable").removeAttr("tabindex aria-controls aria-pressed").not("a,button").removeAttr("role").end().filter("button").prop("disabled",!0),e.apply(this,arguments)})}jQuery.fn.extend({ariaClick:function(n,a){if(0===this.length||0===arguments.length)return this;var i=n,o=a;return null==o&&(o=i,i=undefined),i=jQuery.extend({namespace:undefined,one:!1,selector:undefined,data:undefined,controls:undefined,pressed:undefined,label:undefined},i),"string"!=typeof i.namespace?i.namespace="":"."!==i.namespace[0]&&(i.namespace="."+i.namespace),"boolean"==typeof i.pressed&&(i.pressed=i.pressed?"true":"false"),this.filter("button").prop("type","button"),this.not("a,button").attr("role","button"),this.attr("tabindex",0),null!=i.controls&&this.attr("aria-controls",i.controls),null!=i.pressed&&this.attr("aria-pressed",i.pressed),null!=i.label&&this.attr({"aria-label":i.label,title:i.label}),this.not("button").on("keypress.aria-clickable"+i.namespace,i.selector,e),this.on("click.aria-clickable"+i.namespace,i.selector,i.data,i.one?r(o):t(o)),this}})}(),function(){jQuery.extend({wikiWithOptions:function(e){for(var t=arguments.length,r=Array(t>1?t-1:0),n=1;n<t;n++)r[n-1]=arguments[n];if(0!==r.length){var a=document.createDocumentFragment();r.forEach(function(t){return new Wikifier(a,t,e)});var i=[].concat(_toConsumableArray(a.querySelectorAll(".error"))).map(function(e){return e.textContent.replace(/^(?:(?:Uncaught\s+)?Error:\s+)+/,"")});if(i.length>0)throw new Error(i.join("; "))}},wiki:function(){for(var e=arguments.length,t=Array(e),r=0;r<e;r++)t[r]=arguments[r];this.wikiWithOptions.apply(this,[undefined].concat(t))}}),jQuery.fn.extend({wikiWithOptions:function(e){for(var t=arguments.length,r=Array(t>1?t-1:0),n=1;n<t;n++)r[n-1]=arguments[n];if(0===this.length||0===r.length)return this;var a=document.createDocumentFragment();return r.forEach(function(t){return new Wikifier(a,t,e)}),this.append(a),this},wiki:function(){for(var e=arguments.length,t=Array(e),r=0;r<e;r++)t[r]=arguments[r];return this.wikiWithOptions.apply(this,[undefined].concat(t))}})}();var Util=function(){function e(e){return Object.freeze(Object.assign(Object.create(null),e))}function t(e){return Object.prototype.toString.call(e).slice(8,-1)}function r(e){var t=void 0;switch("undefined"==typeof e?"undefined":_typeof(e)){case"number":t=e;break;case"string":t=Number(e);break;default:return!1}return!Number.isNaN(t)&&Number.isFinite(t)}function n(e){return"boolean"==typeof e||"string"==typeof e&&("true"===e||"false"===e)}function a(e){return String(e).trim().replace(/[^\w\s\u2013\u2014-]+/g,"").replace(/[_\s\u2013\u2014-]+/g,"-").toLocaleLowerCase()}function i(e){if(null==e)return"";var t=String(e);return t&&h.test(t)?t.replace(p,function(e){return g[e]}):t}function o(e){if(null==e)return"";var t=String(e);return t&&y.test(t)?t.replace(m,function(e){return v[e.toLowerCase()]}):t}function s(e,t){var r=String(e),n=Math.trunc(t),a=r.charCodeAt(n);if(Number.isNaN(a))return{char:"",start:-1,end:-1};var i={char:r.charAt(n),start:n,end:n};if(a<55296||a>57343)return i;if(a>=55296&&a<=56319){var o=n+1;if(o>=r.length)return i;var s=r.charCodeAt(o);return s<56320||s>57343?i:(i.char=i.char+r.charAt(o),i.end=o,i)}if(0===n)return i;var u=n-1,l=r.charCodeAt(u);return l<55296||l>56319?i:(i.char=r.charAt(u)+i.char,i.start=u,i)}function u(){return(Has.performance?performance:Date).now()}function l(e){var t=/^([+-]?(?:\d*\.)?\d+)([Mm]?[Ss])$/,r=t.exec(String(e));if(null===r)throw new SyntaxError('invalid time value syntax: "'+e+'"');var n=Number(r[1]);if(/^[Ss]$/.test(r[2])&&(n*=1e3),Number.isNaN(n)||!Number.isFinite(n))throw new RangeError('invalid time value: "'+e+'"');return n}function c(e){if("number"!=typeof e||Number.isNaN(e)||!Number.isFinite(e)){var t=void 0;switch("undefined"==typeof e?"undefined":_typeof(e)){case"string":t='"'+e+'"';break;case"number":t=String(e);break;default:t=Object.prototype.toString.call(e)}throw new Error("invalid milliseconds: "+t)}return e+"ms"}function d(e){if(!e.includes("-"))switch(e){case"bgcolor":return"backgroundColor";case"float":return"cssFloat";default:return e}var t="-ms-"===e.slice(0,4)?e.slice(1):e;return t.split("-").map(function(e,t){return 0===t?e:e.toUpperFirst()}).join("")}function f(e){var t=document.createElement("a"),r=Object.create(null);t.href=e,t.search&&t.search.replace(/^\?/,"").splitOrEmpty(/(?:&(?:amp;)?|;)/).forEach(function(e){var t=e.split("="),n=_slicedToArray(t,2),a=n[0],i=n[1];r[a]=i});var n=t.host&&"/"!==t.pathname[0]?"/"+t.pathname:t.pathname;return{href:t.href,protocol:t.protocol,host:t.host,hostname:t.hostname,port:t.port,path:""+n+t.search,pathname:n,query:t.search,search:t.search,queries:r,searches:r,hash:t.hash}}var p=/[&<>"'`]/g,h=new RegExp(p.source),g=Object.freeze({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;","`":"&#96;"}),m=/&(?:amp|#38|#x26|lt|#60|#x3c|gt|#62|#x3e|quot|#34|#x22|apos|#39|#x27|#96|#x60);/gi,y=new RegExp(m.source,"i"),v=Object.freeze({"&amp;":"&","&#38;":"&","&#x26;":"&","&lt;":"<","&#60;":"<","&#x3c;":"<","&gt;":">","&#62;":">","&#x3e;":">","&quot;":'"',"&#34;":'"',"&#x22;":'"',"&apos;":"'","&#39;":"'","&#x27;":"'","&#96;":"`","&#x60;":"`"});return Object.freeze(Object.defineProperties({},{toEnum:{value:e},toStringTag:{value:t},isNumeric:{value:r},isBoolean:{value:n},slugify:{value:a},escape:{value:i},unescape:{value:o},charAndPosAt:{value:s},fromCssTime:{value:l},toCssTime:{value:c},fromCssProperty:{value:d},parseUrl:{value:f},now:{value:u},random:{value:Math.random},entityEncode:{value:i},entityDecode:{value:o},evalExpression:{value:function(){return Scripting.evalJavaScript.apply(Scripting,arguments)}},evalStatements:{value:function(){return Scripting.evalJavaScript.apply(Scripting,arguments)}}}))}(),SimpleAudio=function(){function e(){return g}function t(e){g=!!e,l("mute",g)}function r(){return p}function n(e){p=Math.clamp(e,.2,5),l("rate",p)}function a(){return h}function i(e){h=Math.clamp(e,0,1),l("volume",h)}function o(){l("stop")}function s(e,t){if("function"!=typeof t)throw new Error("callback parameter must be a function");f.set(e,t)}function u(e){f.delete(e)}function l(e,t){f.forEach(function(r){return r(e,t)})}function c(){for(var e=arguments.length,t=Array(e),r=0;r<e;r++)t[r]=arguments[r];return new(Function.prototype.bind.apply(m,[null].concat(t)))}function d(){for(var e=arguments.length,t=Array(e),r=0;r<e;r++)t[r]=arguments[r];return new(Function.prototype.bind.apply(y,[null].concat(t)))}var f=new Map,p=1,h=1,g=!1,m=function(){function e(t){if(_classCallCheck(this,e),Array.isArray(t))this._create(t);else{if(!(t instanceof e))throw new Error("sources parameter must be an array of either URLs or source objects");this._copy(t)}}return _createClass(e,[{key:"_create",value:function(t){if(!Array.isArray(t)||0===t.length)throw new Error("sources parameter must be an array of either URLs or source objects");var r=/^data:\s*audio\/([^;,]+)\s*[;,]/i,n=/\.([^.\/\\]+)$/,a=e.getType,i=[],o=document.createElement("audio");if(t.forEach(function(e){var t=null;switch("undefined"==typeof e?"undefined":_typeof(e)){case"string":var s=void 0;if("data:"===e.slice(0,5)){if(s=r.exec(e),null===s)throw new Error("source data URI missing media type")}else if(s=n.exec(Util.parseUrl(e).pathname),null===s)throw new Error("source URL missing file extension");var u=a(s[1]);null!==u&&(t={src:e,type:u});break;case"object":if(null===e)throw new Error("source object cannot be null");if(!e.hasOwnProperty("src"))throw new Error('source object missing required "src" property');
