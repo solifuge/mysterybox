@@ -161,9 +161,9 @@ iframe {
 }
 
 
-.null a { color : red; }
+.glitch a { color : red; }
 
-.null { color : red; }
+.glitch { color : red; }
 
 html
 {
@@ -192,13 +192,13 @@ div a {
     text-shadow: -2px 2px 1px rgba(0, 153, 255, 1), 0px 0px 2px rgba(153, 153, 0, .5), 2px -2px 1px rgba(153, 0, 255, 1);
 	animation: linkMove 15000ms ease infinite;}
 
-div .null a {
+div .glitch a {
     text-shadow: -2px 2px 1px rgba(204, 0, 102, 1), 0px 0px 2px rgba(0, 153, 153, .5), 2px -2px 1px rgba(204, 102, 0, 1);
-	animation: nullMove 15000ms ease infinite;}
+	animation: glitchMove 15000ms ease infinite;}
 
-div .null {
+div .glitch {
     text-shadow: -2px 2px 1px rgba(204, 0, 102, 1), 0px 0px 2px rgba(0, 153, 153, .5), 2px -2px 1px rgba(204, 102, 0, 1);
-	animation: nullMove 15000ms ease infinite;}
+	animation: glitchMove 15000ms ease infinite;}
 
 @keyframes gradientMove { 
     0%{background-size: 100% 3px}
@@ -238,13 +238,18 @@ div .null {
 	100%{text-shadow: -2px 2px 2px rgba(0, 153, 255, 1), 0px 0px 2px rgba(153, 153, 0, .5), 2px -2px 2px rgba(153, 0, 255, 1);}
 }
 
-@keyframes nullMove { 
+@keyframes glitchMove { 
 	0%{text-shadow: -2px 2px 2px rgba(204, 0, 102, 1), 0px 0px 2px rgba(0, 153, 153, .5), 2px -2px 2px rgba(204, 102, 0, 1);}
 	25%{text-shadow: -3px 0px 2px rgba(204, 0, 102, 1), 0px -2px 2px rgba(0, 153, 153, .5), 3px 0px 2px rgba(204, 102, 0, 1);}
 	50%{text-shadow: -2px -2px 2px rgba(204, 0, 102, 1), 0px 0px 2px rgba(0, 153, 153, .5), 2px 2px 2px rgba(204, 102, 0, 1);}
 	75%{text-shadow: -3px 0px 2px rgba(204, 0, 102, 1), 0px 2px 2px rgba(0, 153, 153, .5), 3px 0px 2px rgba(204, 102, 0, 1);}
 	100%{text-shadow: -2px 2px 2px rgba(204, 0, 102, 1), 0px 0px 2px rgba(0, 153, 153, .5), 2px -2px 2px rgba(204, 102, 0, 1);}
 }
+
+
+
+
+
 
 
 
@@ -295,16 +300,21 @@ setup.eraseAll = function () {
 	}
 };
 
-</script><tw-passagedata pid="1" name="EE_Entrance" tags="" position="550,350" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;\
-You &lt;i&gt;assume&lt;/i&gt; you&#39;re standing in an apartment entryway. Unfortunately, it&#39;s too dark in here to make out much detail. To the left is a cramped-looking &lt;&lt;if $noLiving&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoLiving]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Living_Room&gt;|EE_Living_Room]]&lt;&lt;/if&gt;&gt;, and to the right a messy &lt;&lt;if $noKitchen&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoKitchen]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Kitchen&gt;|EE_Kitchen]]&lt;&lt;/if&gt;&gt;.
 
-Some distance ahead, you can make out the faint outline of a &lt;&lt;if $noHall&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoHall]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Dark_Hallway&gt;|EE_Dark_Hallway]]&lt;&lt;/if&gt;&gt;. The &lt;&lt;if $yesExit&gt;&gt;[[&lt;WARP:EE_Exit&gt;|EE_Exit]]&lt;&lt;else&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoExit]]&lt;/span&gt;&lt;&lt;/if&gt;&gt; is behind you.</tw-passagedata><tw-passagedata pid="2" name="StoryCaption" tags="" position="100,200" size="100,100">Crawl Level: -0
+
+
+
+
+</script><tw-passagedata pid="1" name="EE_Entrance" tags="" position="550,350" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;\
+You &lt;i&gt;assume&lt;/i&gt; you&#39;re standing in an apartment entryway. Unfortunately, it&#39;s too dark in here to make out much detail. To the left is a cramped-looking &lt;&lt;if $noLiving&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoLiving]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Living_Room&gt;|EE_Living_Room]]&lt;&lt;/if&gt;&gt;, and to the right a messy &lt;&lt;if $noKitchen&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoKitchen]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Kitchen&gt;|EE_Kitchen]]&lt;&lt;/if&gt;&gt;.
+
+Some distance ahead, you can make out the faint outline of a &lt;&lt;if $noHall&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoHall]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Dark_Hallway&gt;|EE_Dark_Hallway]]&lt;&lt;/if&gt;&gt;. The &lt;&lt;if $yesExit&gt;&gt;[[&lt;WARP:EE_Exit&gt;|EE_Exit]]&lt;&lt;else&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoExit]]&lt;/span&gt;&lt;&lt;/if&gt;&gt; is behind you.</tw-passagedata><tw-passagedata pid="2" name="StoryCaption" tags="" position="100,200" size="100,100">Crawl Level: -0
 Crawl State: Explore
 Pawn: &lt;&lt;if $nameSet || $end&gt;&gt;&lt;&lt;print $memory.name&gt;&gt;&lt;&lt;else&gt;&gt;[[Undefined]]&lt;&lt;/if&gt;&gt;
 &lt;hr&gt;
 Scene: BCB_Floor_2
 Area: Apartment_EE
-Zone: &lt;&lt;if $end&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[BAD_ZONE_ID|Questions]]&lt;/span&gt;&lt;&lt;elseif $nameSet&gt;&gt;BAD_ZONE_ID&lt;&lt;elseif ndef $location || $locationNull&gt;&gt;&lt;&lt;set $location to &quot;BAD_ZONE_ID&quot;&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[BAD_ZONE_ID]]&lt;/span&gt;
+Zone: &lt;&lt;if $end&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[BAD_ZONE_ID|Questions]]&lt;/span&gt;&lt;&lt;elseif $nameSet&gt;&gt;BAD_ZONE_ID&lt;&lt;elseif ndef $location || $locationNull&gt;&gt;&lt;&lt;set $location to &quot;BAD_ZONE_ID&quot;&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[BAD_ZONE_ID]]&lt;/span&gt;
 &lt;&lt;else&gt;&gt;$location
 &lt;&lt;/if&gt;&gt;\
 &lt;hr&gt;
@@ -325,25 +335,25 @@ DEBUG MENU:
 &lt;span class=error&gt;ZONE &quot;EE_Exit&quot; DOES NOT EXIST &lt;/span&gt;
 
 [[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="5" name="EE_Dark_Hallway" tags="" position="550,200" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;&lt;&lt;remember $noHall = true&gt;&gt;\
-You move into the &lt;&lt;if $noSwitch&gt;&gt;&lt;TOGGLE:&quot;Lit_Desc&quot;&gt;&lt;&lt;else&gt;&gt;&lt;TOGGLE:&quot;Dark_Desc&quot;&gt;&lt;&lt;/if&gt;&gt; hallway, deeper in the apartment. You&#39;re not sure, but you think you can make out the &lt;&lt;if $noSwitch&gt;&gt;&lt;TOGGLE:&quot;Shiny_Plastic_Desc&quot;&gt;&lt;&lt;else&gt;&gt;&lt;TOGGLE:&quot;Orange_Glow_Desc&quot;&gt;&lt;&lt;/if&gt;&gt; of a &lt;&lt;if $noSwitch&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoSwitch]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Light_Switch&gt;|Light]]&lt;&lt;/if&gt;&gt; nearby.
+You move into the &lt;&lt;if $noSwitch&gt;&gt;&lt;TOGGLE:&quot;Lit_Desc&quot;&gt;&lt;&lt;else&gt;&gt;&lt;TOGGLE:&quot;Dark_Desc&quot;&gt;&lt;&lt;/if&gt;&gt; hallway, deeper in the apartment. You&#39;re not sure, but you think you can make out the &lt;&lt;if $noSwitch&gt;&gt;&lt;TOGGLE:&quot;Shiny_Plastic_Desc&quot;&gt;&lt;&lt;else&gt;&gt;&lt;TOGGLE:&quot;Orange_Glow_Desc&quot;&gt;&lt;&lt;/if&gt;&gt; of a &lt;&lt;if $noSwitch&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoSwitch]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Light_Switch&gt;|Light]]&lt;&lt;/if&gt;&gt; nearby.
 
-Ahead of you is &lt;&lt;if $noDark&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoSwitch]]&lt;/span&gt;&lt;&lt;elseif $noSwitch&gt;&gt;[[&lt;TOGGLE:&quot;Lit_Desc&quot;&gt;|Dark]]&lt;&lt;else&gt;&gt;&lt;TOGGLE:&quot;Total_Darkness_Desc&quot;&gt;&lt;&lt;/if&gt;&gt;. Behind, the [[&lt;WARP:EE_Entrance&gt;|EE_Entrance]].</tw-passagedata><tw-passagedata pid="6" name="Light" tags="" position="400,200" size="100,100">Drawing closer to inspect the amber glow on the wall, you confirm that it is indeed a wall-mounted switch. One that&#39;s currently turned &lt;TOGGLE:&quot;Switch_Desc&quot;&gt;.
+Ahead of you is &lt;&lt;if $noDark&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoSwitch]]&lt;/span&gt;&lt;&lt;elseif $noSwitch&gt;&gt;[[&lt;TOGGLE:&quot;Lit_Desc&quot;&gt;|Dark]]&lt;&lt;else&gt;&gt;&lt;TOGGLE:&quot;Total_Darkness_Desc&quot;&gt;&lt;&lt;/if&gt;&gt;. Behind, the [[&lt;WARP:EE_Entrance&gt;|EE_Entrance]].</tw-passagedata><tw-passagedata pid="6" name="Light" tags="" position="400,200" size="100,100">Drawing closer to inspect the amber glow on the wall, you confirm that it is indeed a wall-mounted switch. One that&#39;s currently turned &lt;TOGGLE:&quot;Switch_Desc&quot;&gt;.
 
 Do you want to [[&lt;ACTION:Switch_On&gt;|Switch]], or would you rather [[&lt;WARP:EE_Dark_Hallway&gt;|EE_Dark_Hallway]]?</tw-passagedata><tw-passagedata pid="7" name="EE_Living_Room" tags="" position="700,350" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;&lt;&lt;remember $noLiving = true&gt;&gt;\
 You enter a small but well-appointed living room.
 
 Perhaps too well-appointed.  Cabinets, tables, and seats have been crammed into the space, leaving little room to do any living. The windows are &lt;TOGGLE:&quot;Shuttered_Desc&quot;&gt;, but you can see by the blue glow of a clock. The time reads &lt;COUNTER:&quot;Living_Hours&quot;&gt;:&lt;COUNTER:&quot;Living_Seconds&quot;&gt;.
 
-An old &lt;&lt;if $noDog&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDog]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Sleeping_Dog&gt;|Dog]]&lt;&lt;/if&gt;&gt; lies on the couch, on top of a disheveled knit throw blanket.
+An old &lt;&lt;if $noDog&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDog]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Sleeping_Dog&gt;|Dog]]&lt;&lt;/if&gt;&gt; lies on the couch, on top of a disheveled knit throw blanket.
 
 [[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="8" name="EE_Kitchen" tags="" position="550,500" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;&lt;&lt;remember $noKitchen = true&gt;&gt;\
 You step onto the crisp linoleum of the kitchen floor. It&#39;s a typical apartment kitchen ecosystem, lit against the dark by various colors of LEDs and displays. 
 
 A microwave, whose clock is blinking on midnight. Two toasters, only one of which is plugged in. A grimy coffee maker and greasy oven, competing over who can go longest without a cleaning.
 
-Recyclables and loose papers blanket all surfaces. Mercifully uncluttered, a worn &lt;&lt;if $noFridge&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoFridge]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Kitchen_Fridge&gt;|EE_Fridge]]&lt;&lt;/if&gt;&gt; stands tall in the corner.
+Recyclables and loose papers blanket all surfaces. Mercifully uncluttered, a worn &lt;&lt;if $noFridge&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoFridge]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Kitchen_Fridge&gt;|EE_Fridge]]&lt;&lt;/if&gt;&gt; stands tall in the corner.
 
-[[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="9" name="NoLiving" tags="" position="850,350" size="100,100">&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;WARP:EE_Living_Room&quot; &lt;/span&gt;
+[[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="9" name="NoLiving" tags="" position="850,350" size="100,100">&lt;span class=error&gt;NULL REFERENCE: &quot;WARP:EE_Living_Room&quot; &lt;/span&gt;
 &lt;span class=error&gt;ZONE &quot;EE_Living_Room&quot; DOES NOT EXIST&lt;/span&gt;
 
 [[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="10" name="NoKitchen" tags="" position="550,650" size="100,100">&lt;span class=error&gt;NULL REFERENCE: &quot;WARP:EE_Kitchen&quot; &lt;/span&gt;
@@ -358,7 +368,7 @@ Recyclables and loose papers blanket all surfaces. Mercifully uncluttered, a wor
 WOULD YOU LIKE TO RESET AREA: Apartment_EE?
 
 &lt;&lt;if $yesExit || $end&gt;&gt;\
-	Instability Level: &lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|Reset 2]]&lt;/span&gt;
+	Instability Level: &lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|Reset 2]]&lt;/span&gt;
 &lt;&lt;else&gt;&gt;\
 &lt;&lt;switch _damagedZones&gt;&gt;\
 &lt;&lt;case 1&gt;&gt;\
@@ -369,7 +379,7 @@ WOULD YOU LIKE TO RESET AREA: Apartment_EE?
 	Instability Level: SERIOUS
 &lt;&lt;case 4&gt;&gt;\
 	Instability Level: CRITICAL
-	&lt;span class=&quot;null&quot;&gt;[[&lt;ALERT: &quot;Reset_Strongly_Advised&quot;&gt;|Reset 2]]&lt;/span&gt;
+	&lt;span class=&quot;glitch&quot;&gt;[[&lt;ALERT: &quot;Reset_Strongly_Advised&quot;&gt;|Reset 2]]&lt;/span&gt;
 &lt;&lt;/switch&gt;&gt;\
 &lt;&lt;/if&gt;&gt;\
 
@@ -444,7 +454,7 @@ RESETTING ZONE&lt;&lt;timed 0.3333s&gt;&gt;\
 &lt;&lt;next&gt;&gt;\
 	&lt;&lt;goto &quot;Reset 4&quot;&gt;&gt;\
 &lt;&lt;/timed&gt;&gt;\
-&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="14" name="NoDog" tags="" position="850,500" size="100,100">&lt;span class=error&gt;NULL REFERENCE: &quot;Character:Sleeping_Dog&quot; &lt;/span&gt;
+&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="14" name="NoDog" tags="" position="850,499" size="100,100">&lt;span class=error&gt;NULL REFERENCE: &quot;Character:Sleeping_Dog&quot; &lt;/span&gt;
 &lt;span class=error&gt;CHARACTER &quot;Sleeping_Dog&quot; DOES NOT EXIST &lt;/span&gt;
 
 [[RETURN|EE_Living_Room]]</tw-passagedata><tw-passagedata pid="15" name="Reset 4" tags="" position="100,500" size="100,100">&lt;&lt;if $visitCount gt 0 || $nameSet || $end&gt;&gt;\
@@ -483,7 +493,7 @@ RESETTING ZONE&lt;&lt;timed 0.3333s&gt;&gt;\
 &lt;&lt;goto &quot;EE_Entrance&quot;&gt;&gt;\</tw-passagedata><tw-passagedata pid="16" name="Dog" tags="" position="850,200" size="100,100">You&#39;re pretty sure there&#39;s an adage that specifically advises against this, but... this napping dog seems small, tame, and friendly enough.
 
 Would you like to [[&lt;ACTION:Pet_Dog&gt;|PetDog]], or would you rather [[&lt;WARP:EE_Living_Room&gt;|EE_Living_Room]]?</tw-passagedata><tw-passagedata pid="17" name="PetDog" tags="" position="1000,350" size="100,100">&lt;&lt;remember $noDog = true&gt;&gt;\
-You move in close, reaching out toward the dimly lit couch to deliver a gentle pet to the &lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDog]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="18" name="NoDark" tags="" position="700,50" size="100,100">&lt;&lt;remember $noDark = true&gt;&gt;\
+You move in close, reaching out toward the dimly lit couch to deliver a gentle pet to the &lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDog]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="18" name="NoDark" tags="" position="700,50" size="100,100">&lt;&lt;remember $noDark = true&gt;&gt;\
 &lt;span class=error&gt;NULL REFERENCE: &quot;CHARACTER:Darsen&quot; &lt;/span&gt;
 &lt;span class=error&gt;CHARACTER &quot;Darsen&quot; DOES NOT EXIST &lt;/span&gt;
 &lt;span class=error&gt;NULL REFERENCE: &quot;Quest:Fetch_Dog_Food&quot; &lt;/span&gt;
@@ -494,11 +504,11 @@ You move in close, reaching out toward the dimly lit couch to deliver a gentle p
 
 &quot;Hungry like the wolf, am I right? Thanks for your help!&quot;
 
-[[END CONVERSATION|EE_Dark_Hallway]]</tw-passagedata><tw-passagedata pid="19" name="Dark" tags="" position="700,200" size="100,100">Finally able to see where you&#39;re going, you step confidently forward, into the &lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDark]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="20" name="NoSwitch" tags="" position="550,50" size="100,100">&lt;span class=error&gt;NULL REFERENCE: &quot;TOGGLE:Light_Switch&quot; &lt;/span&gt;
+[[END CONVERSATION|EE_Dark_Hallway]]</tw-passagedata><tw-passagedata pid="19" name="Dark" tags="" position="700,200" size="100,100">Finally able to see where you&#39;re going, you step confidently forward, into the &lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDark]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="20" name="NoSwitch" tags="" position="551,50" size="100,100">&lt;span class=error&gt;NULL REFERENCE: &quot;TOGGLE:Light_Switch&quot; &lt;/span&gt;
 &lt;span class=error&gt;TOGGLEABLE &quot;Light_Switch&quot; DOES NOT EXIST &lt;/span&gt;
 
 [[RETURN|EE_Dark_Hallway]]</tw-passagedata><tw-passagedata pid="21" name="Switch" tags="" position="400,50" size="100,100">&lt;&lt;remember $noSwitch = true&gt;&gt;\
-Reaching out to flip the &lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoSwitch]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="22" name="BAD_ZONE_ID" tags="" position="250,650" size="100,100">&lt;&lt;set $locationNull = false&gt;&gt;&lt;&lt;set $nameSet = false&gt;&gt;&lt;&lt;if ndef $visitCount&gt;&gt;&lt;&lt;set $visitCount to 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if ndef $playful&gt;&gt;&lt;&lt;set $playful to false&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if ndef $renameTimes&gt;&gt;&lt;&lt;set $renameTimes to 0&gt;&gt;&lt;&lt;/if&gt;&gt;\
+Reaching out to flip the &lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoSwitch]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="22" name="BAD_ZONE_ID" tags="" position="250,650" size="100,100">&lt;&lt;set $locationNull = false&gt;&gt;&lt;&lt;set $nameSet = false&gt;&gt;&lt;&lt;if ndef $visitCount&gt;&gt;&lt;&lt;set $visitCount to 0&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if ndef $playful&gt;&gt;&lt;&lt;set $playful to false&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if ndef $renameTimes&gt;&gt;&lt;&lt;set $renameTimes to 0&gt;&gt;&lt;&lt;/if&gt;&gt;\
 \
 &lt;&lt;if $initialRenaming is true&gt;&gt;\
 	&lt;&lt;set $initialRenaming to false&gt;&gt;\
@@ -669,7 +679,7 @@ Reaching out to flip the &lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REF
 		&quot;&quot;&quot;&gt;&quot;&quot;&quot; &lt;&lt;textbox &quot;$name&quot; &quot;&quot; &quot;Name Check&quot; autofocus&gt;&gt;
 	  &lt;&lt;/switch&gt;&gt;\
 	&lt;&lt;/if&gt;&gt;\
-&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="23" name="EE_Exit" tags="" position="400,650" size="100,100">&lt;&lt;set $location = &quot;BAD_AREA_ID&quot;&gt;&gt;&lt;&lt;set $locationNull = true&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="NoHall" tags="" position="400,350" size="100,100">&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;WARP:EE_Dark_Hallway&quot; &lt;/span&gt;
+&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="23" name="EE_Exit" tags="" position="400,650" size="100,100">&lt;&lt;set $location = &quot;BAD_AREA_ID&quot;&gt;&gt;&lt;&lt;set $locationNull = true&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="NoHall" tags="" position="400,350" size="100,100">&lt;span class=error&gt;NULL REFERENCE: &quot;WARP:EE_Dark_Hallway&quot; &lt;/span&gt;
 &lt;span class=error&gt;ZONE &quot;EE_Dark_Hallway&quot; DOES NOT EXIST&lt;/span&gt;
 
 [[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="25" name="Save" tags="" position="50,800" size="100,100">&lt;&lt;run setup.saveState0()&gt;&gt;\
@@ -1102,7 +1112,7 @@ Edit Memory Reset? (&lt;&lt;print $memory.reset&gt;&gt;)
 	[[WHERE IS THIS|Ask Where][$askCount += 1]]
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $askWhat != true&gt;&gt;\
-	[[WHAT HAPPENED TO FLANNERY|Ask What][$askCount += 1]]
+	[[WHAT HAPPENED TO MY PAWN|Ask What][$askCount += 1]]
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $askWhy != true&gt;&gt;\
 	[[WHY IS EVERYTHING BROKEN|Ask Why][$askCount += 1]]
@@ -1148,16 +1158,16 @@ Edit Memory Reset? (&lt;&lt;print $memory.reset&gt;&gt;)
 &lt;span class=&quot;error&quot;&gt;Some facet of your relative Realness, perhaps.&lt;/span&gt;
 &lt;span class=&quot;error&quot;&gt;You seem to cut right through this place.&lt;/span&gt;
 
-[[CONTINUE|Ask Why 2]]</tw-passagedata><tw-passagedata pid="48" name="Ask What" tags="" position="850,1250" size="100,100">&lt;span class=&quot;error&quot;&gt;Your Pawn?&lt;/span&gt;
+[[CONTINUE|Ask Why 2]]</tw-passagedata><tw-passagedata pid="48" name="Ask What" tags="" position="850,1250" size="100,100">&lt;span class=&quot;error&quot;&gt;Your Pawn? You mean Flannery?&lt;/span&gt;
+&lt;&lt;if $flannery != &quot;Flannery&quot;&gt;&gt;\
+	&lt;span class=&quot;error&quot;&gt;Ah, Sorry. I mean the &lt;i&gt;Other&lt;/i&gt; Flannery.&lt;/span&gt;
+&lt;&lt;/if&gt;&gt;\
 
 &lt;span class=&quot;error&quot;&gt;She should be fine, I think.&lt;/span&gt;
 &lt;span class=&quot;error&quot;&gt;She just isn&#39;t able to perceive this place.&lt;/span&gt;
 &lt;span class=&quot;error&quot;&gt;Not the way you or I can.&lt;/span&gt;
 
-&lt;span class=&quot;error&quot;&gt;I do wonder what Flannery &lt;i&gt;would&lt;/i&gt; think of this place.&lt;/span&gt;
-&lt;&lt;if $flannery != &quot;Flannery&quot;&gt;&gt;\
-	&lt;span class=&quot;error&quot;&gt;Ah, Sorry. I mean the &lt;i&gt;Other&lt;/i&gt; Flannery.&lt;/span&gt;
-&lt;&lt;/if&gt;&gt;\
+&lt;span class=&quot;error&quot;&gt;I wonder what $flannery would think of this place.&lt;/span&gt;
 &lt;span class=&quot;error&quot;&gt;But, as a Pawn, she can&#39;t leave The Crawl...&lt;/span&gt;
 &lt;span class=&quot;error&quot;&gt;From her perspective, this is probably empty space.&lt;/span&gt;
 
