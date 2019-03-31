@@ -329,14 +329,12 @@ You move into the &lt;&lt;if $noSwitch&gt;&gt;&lt;TOGGLE:&quot;Lit_Desc&quot;&gt
 
 Ahead of you is &lt;&lt;if $noDark&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoSwitch]]&lt;/span&gt;&lt;&lt;elseif $noSwitch&gt;&gt;[[&lt;TOGGLE:&quot;Lit_Desc&quot;&gt;|Dark]]&lt;&lt;else&gt;&gt;&lt;TOGGLE:&quot;Total_Darkness_Desc&quot;&gt;&lt;&lt;/if&gt;&gt;. Behind, the [[&lt;WARP:EE_Entrance&gt;|EE_Entrance]].</tw-passagedata><tw-passagedata pid="6" name="Light" tags="" position="400,200" size="100,100">Drawing closer to inspect the amber glow on the wall, you confirm that it is indeed a wall-mounted switch. One that&#39;s currently turned &lt;TOGGLE:&quot;Switch_Desc&quot;&gt;.
 
-Do you want to [[&lt;ACTION:Switch_On&gt;|Switch]], or would you rather [[&lt;WARP:EE_Dark_Hallway&gt;|EE_Dark_Hallway]]?</tw-passagedata><tw-passagedata pid="7" name="EE_Living_Room" tags="" position="850,350" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;&lt;&lt;remember $noLiving = true&gt;&gt;\
-You enter a small but well appointed living room.
+Do you want to [[&lt;ACTION:Switch_On&gt;|Switch]], or would you rather [[&lt;WARP:EE_Dark_Hallway&gt;|EE_Dark_Hallway]]?</tw-passagedata><tw-passagedata pid="7" name="EE_Living_Room" tags="" position="700,350" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;&lt;&lt;remember $noLiving = true&gt;&gt;\
+You enter a small but well-appointed living room.
 
-Perhaps too well appointed, you think. The coziness is not just from small size, but also due to far too many cabinets, end tables, seats, and knicknacks that&#39;ve been crammed into the space.
+Perhaps too well-appointed.  Cabinets, tables, and seats have been crammed into the space, leaving little room to do any living. The windows are &lt;TOGGLE:&quot;Shuttered_Desc&quot;&gt;, but you can see by the blue glow of a clock. The time reads &lt;COUNTER:&quot;Living_Hours&quot;&gt;:&lt;COUNTER:&quot;Living_Seconds&quot;&gt;.
 
-No light filters in from the &lt;TOGGLE:&quot;Shuttered_Window_Desc&quot;&gt;, but you&#39;re able to make your way around using the blue glow of a digital clock. The time reads &lt;COUNTER:&quot;Living_Hour&quot;&gt;:&lt;COUNTER:&quot;Living_Second&quot;&gt;.
-
-An old &lt;&lt;if $noDog&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDog]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Sleeping_Dog&gt;|Dog]]&lt;&lt;/if&gt;&gt; lies comfortably on the couch, on top of a knit throw blanket. It&#39;s a scene with a certain degree of folksy charm.
+An old &lt;&lt;if $noDog&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDog]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Sleeping_Dog&gt;|Dog]]&lt;&lt;/if&gt;&gt; lies on the couch, on top of a disheveled knit throw blanket.
 
 [[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="8" name="EE_Kitchen" tags="" position="550,500" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;&lt;&lt;remember $noKitchen = true&gt;&gt;\
 You step onto the crisp linoleum of the kitchen floor. It&#39;s a typical apartment kitchen ecosystem, lit against the dark by various colors of LEDs and displays. 
@@ -345,7 +343,7 @@ A microwave, whose clock is blinking on midnight. Two toasters, only one of whic
 
 Recyclables and loose papers blanket all surfaces. Mercifully uncluttered, a worn &lt;&lt;if $noFridge&gt;&gt;&lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoFridge]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;DETAIL:Kitchen_Fridge&gt;|EE_Fridge]]&lt;&lt;/if&gt;&gt; stands tall in the corner.
 
-[[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="9" name="NoLiving" tags="" position="700,350" size="100,100">&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;WARP:EE_Living_Room&quot; &lt;/span&gt;
+[[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="9" name="NoLiving" tags="" position="850,350" size="100,100">&lt;span class=error&gt;NULL REFERENCE EXCEPTION: &quot;WARP:EE_Living_Room&quot; &lt;/span&gt;
 &lt;span class=error&gt;ZONE &quot;EE_Living_Room&quot; DOES NOT EXIST&lt;/span&gt;
 
 [[RETURN|EE_Entrance]]</tw-passagedata><tw-passagedata pid="10" name="NoKitchen" tags="" position="550,650" size="100,100">&lt;span class=error&gt;NULL REFERENCE: &quot;WARP:EE_Kitchen&quot; &lt;/span&gt;
@@ -482,7 +480,7 @@ RESETTING ZONE&lt;&lt;timed 0.3333s&gt;&gt;\
 &lt;&lt;set $renaming to false&gt;&gt;\
 &lt;&lt;set $initialRenaming to false&gt;&gt;\
 \
-&lt;&lt;goto &quot;EE_Entrance&quot;&gt;&gt;\</tw-passagedata><tw-passagedata pid="16" name="Dog" tags="" position="850,200" size="100,100">You&#39;re pretty sure there&#39;s an addage that specifically advises against this, but... this napping dog seems small, tame, and friendly enough.
+&lt;&lt;goto &quot;EE_Entrance&quot;&gt;&gt;\</tw-passagedata><tw-passagedata pid="16" name="Dog" tags="" position="850,200" size="100,100">You&#39;re pretty sure there&#39;s an adage that specifically advises against this, but... this napping dog seems small, tame, and friendly enough.
 
 Would you like to [[&lt;ACTION:Pet_Dog&gt;|PetDog]], or would you rather [[&lt;WARP:EE_Living_Room&gt;|EE_Living_Room]]?</tw-passagedata><tw-passagedata pid="17" name="PetDog" tags="" position="1000,350" size="100,100">&lt;&lt;remember $noDog = true&gt;&gt;\
 You move in close, reaching out toward the dimly lit couch to deliver a gentle pet to the &lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoDog]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="18" name="NoDark" tags="" position="700,50" size="100,100">&lt;&lt;remember $noDark = true&gt;&gt;\
@@ -504,7 +502,7 @@ Reaching out to flip the &lt;span class=&quot;null&quot;&gt;[[&lt;ERROR:NULL_REF
 \
 &lt;&lt;if $initialRenaming is true&gt;&gt;\
 	&lt;&lt;set $initialRenaming to false&gt;&gt;\
-	&lt;span class=error&gt;Here we go again...&lt;/span&gt;
+	&lt;span class=error&gt;What is your &lt;i&gt;actual&lt;/i&gt; name, then?&lt;/span&gt;
 	
 	&quot;&quot;&quot;&gt;&quot;&quot;&quot; &lt;&lt;textbox &quot;$name&quot; &quot;&quot; &quot;Name Check&quot; autofocus&gt;&gt;
 &lt;&lt;elseif $renameTimes gt 10&gt;&gt;\
@@ -869,7 +867,7 @@ Reset? &lt;&lt;print $memory.reset&gt;&gt;
 	&lt;span class=&quot;error&quot;&gt;Finally, the long ordeal is over.&lt;/span&gt;
 	&lt;span class=&quot;error&quot;&gt;But it &lt;i&gt;was&lt;/i&gt; a novel way to spend time.&lt;/span&gt;
 &lt;&lt;/switch&gt;&gt;\
-&lt;&lt;if $memory.name != $name&gt;&gt;\
+&lt;&lt;if $memory.name != $name &amp;&amp; $memory.name != &quot;&quot;&gt;&gt;\
 	&lt;&lt;if $renaming is true&gt;&gt;\
 	
 		&lt;span class=&quot;error&quot;&gt;At any rate, it&#39;s a good name. It suits you.
@@ -895,7 +893,7 @@ Up top and in front, a [[&lt;OPTION:Carton_Milk&gt;|Milk]] from Biggy&#39;s Barn
 
 Below that, you spy slices of leftover [[&lt;OPTION:Pizza_Meat&gt;|Pizza]] and [[&lt;OPTION:Pizza_Veg&gt;|Pizza]] in a plastic bag. A hefty jar of [[&lt;OPTION:Pickle_Cucumber&gt;|Pickle]] glistens briny green in the fridgelight. And a loaf of [[&lt;OPTION:Sliced_Bread&gt;|Bread]] for some reason?
 
-[[RETURN|EE_Kitchen]]</tw-passagedata><tw-passagedata pid="31" name="Milk" tags="" position="700,650" size="100,100">The packaging features a bipedal cow in a business suit giving a happy hoofs up. Behind them, a line of non-descript and non-bipedal cows walk single flie into an open barn.
+[[RETURN|EE_Kitchen]]</tw-passagedata><tw-passagedata pid="31" name="Milk" tags="" position="701,651" size="100,100">The packaging features a bipedal cow in a business suit giving a happy hoofs up. Behind them, a line of nondescript and non-bipedal cows walk single flie into an open barn.
 
 Looks like it&#39;s only &lt;COUNT:Time_Before/Past&gt; it&#39;s expiration date. If you had to guess, it&#39;s... probably still good? You pour a glass, and add it to your Inventory.
 
@@ -919,7 +917,7 @@ You take out a slice of &lt;TOGGLE:Pizza_Type_Desc&gt;. You&#39;ll have to test 
 &lt;span class=&quot;error&quot;&gt;INVALID PAWN ID: &quot;Undefined&quot; &lt;/span&gt;
 &lt;span class=&quot;error&quot;&gt;NULL REFERENCE AT: &quot;pawn_data.Inventory&quot; &lt;/span&gt;
 
-[[RETURN|EE_Fridge]]</tw-passagedata><tw-passagedata pid="34" name="Pickle" tags="" position="850,650" size="100,100">On the pickle jar, you see the ragged remnants of a torn-off label. For a second, you wonder if that means they&#39;re homemade, or just hapless victims of flagrant marketting vandalism.
+[[RETURN|EE_Fridge]]</tw-passagedata><tw-passagedata pid="34" name="Pickle" tags="" position="850,648" size="100,100">On the pickle jar, you see the ragged remnants of a torn-off label. For a second, you wonder if that means they&#39;re homemade, or just hapless victims of flagrant marketing vandalism.
 
 There&#39;s no indication if they&#39;re sweet or sour, but you can think of one way to find out. You unscrew the pickle jar, take one out, and add it to your inventory.
 
@@ -1112,7 +1110,7 @@ Edit Memory Reset? (&lt;&lt;print $memory.reset&gt;&gt;)
 &lt;&lt;if $askHow != true&gt;&gt;\\
 	[[HOW DO I LEAVE|Ask How][$askCount += 1]]
 &lt;&lt;/if&gt;&gt;\
-&lt;&lt;if $askCount lt 4&gt;&gt;\
+&lt;&lt;if $askCount lt 5&gt;&gt;\
 	[[ACTUALLY, CALL ME SOMETHING ELSE|BAD_ZONE_ID][$renaming to true]]
 	
 &lt;&lt;/if&gt;&gt;\
@@ -1153,7 +1151,7 @@ Edit Memory Reset? (&lt;&lt;print $memory.reset&gt;&gt;)
 [[CONTINUE|Ask Why 2]]</tw-passagedata><tw-passagedata pid="48" name="Ask What" tags="" position="850,1250" size="100,100">&lt;span class=&quot;error&quot;&gt;Your Pawn?&lt;/span&gt;
 
 &lt;span class=&quot;error&quot;&gt;She should be fine, I think.&lt;/span&gt;
-&lt;span class=&quot;error&quot;&gt;She just isn&#39;t able to percieve this place.&lt;/span&gt;
+&lt;span class=&quot;error&quot;&gt;She just isn&#39;t able to perceive this place.&lt;/span&gt;
 &lt;span class=&quot;error&quot;&gt;Not the way you or I can.&lt;/span&gt;
 
 &lt;span class=&quot;error&quot;&gt;I do wonder what Flannery &lt;i&gt;would&lt;/i&gt; think of this place.&lt;/span&gt;
