@@ -257,6 +257,9 @@ div .glitch {
 
 
 
+
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">// TO STORE PERSISTANT VALUES: <<run setup.saveState()>>
 // TO RETRIEVE STORED VALUES: <<set $store to setup.loadMemory#()>>
 
@@ -305,13 +308,17 @@ setup.eraseAll = function () {
 
 
 
+
+
+
 </script><tw-passagedata pid="1" name="EE_Entrance" tags="" position="550,350" size="100,100">&lt;&lt;set $location = passage()&gt;&gt;\
 You &lt;i&gt;assume&lt;/i&gt; you&#39;re standing in an apartment entryway. Unfortunately, it&#39;s too dark in here to make out much detail. To the left is a cramped-looking &lt;&lt;if $noLiving&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoLiving]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Living_Room&gt;|EE_Living_Room]]&lt;&lt;/if&gt;&gt;, and to the right a messy &lt;&lt;if $noKitchen&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoKitchen]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Kitchen&gt;|EE_Kitchen]]&lt;&lt;/if&gt;&gt;.
 
-Some distance ahead, you can make out the faint outline of a &lt;&lt;if $noHall&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoHall]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Dark_Hallway&gt;|EE_Dark_Hallway]]&lt;&lt;/if&gt;&gt;. The &lt;&lt;if $yesExit&gt;&gt;[[&lt;WARP:EE_Exit&gt;|EE_Exit]]&lt;&lt;else&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoExit]]&lt;/span&gt;&lt;&lt;/if&gt;&gt; is behind you.</tw-passagedata><tw-passagedata pid="2" name="StoryCaption" tags="" position="100,200" size="100,100">Crawl Level: -0
-Crawl State: Explore
+Some distance ahead, you can make out the faint outline of a &lt;&lt;if $noHall&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoHall]]&lt;/span&gt;&lt;&lt;else&gt;&gt;[[&lt;WARP:EE_Dark_Hallway&gt;|EE_Dark_Hallway]]&lt;&lt;/if&gt;&gt;. The &lt;&lt;if $yesExit&gt;&gt;[[&lt;WARP:EE_Exit&gt;|EE_Exit]]&lt;&lt;else&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[&lt;ERROR:NULL_REFERENCE&gt;|NoExit]]&lt;/span&gt;&lt;&lt;/if&gt;&gt; is behind you.</tw-passagedata><tw-passagedata pid="2" name="StoryCaption" tags="" position="100,200" size="100,100">Strytlr: Mystery Box
+State: Explore
 Pawn: &lt;&lt;if $nameSet || $end&gt;&gt;&lt;&lt;print $memory.name&gt;&gt;&lt;&lt;else&gt;&gt;[[Undefined]]&lt;&lt;/if&gt;&gt;
 &lt;hr&gt;
+Crawl: Bigg_City
 Scene: BCB_Floor_2
 Area: Apartment_EE
 Zone: &lt;&lt;if $end&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[BAD_ZONE_ID|Questions]]&lt;/span&gt;&lt;&lt;elseif $nameSet&gt;&gt;BAD_ZONE_ID&lt;&lt;elseif ndef $location || $locationNull&gt;&gt;&lt;&lt;set $location to &quot;BAD_ZONE_ID&quot;&gt;&gt;&lt;span class=&quot;glitch&quot;&gt;[[BAD_ZONE_ID]]&lt;/span&gt;
@@ -1129,8 +1136,9 @@ Edit Memory Reset? (&lt;&lt;print $memory.reset&gt;&gt;)
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="45" name="Ask Where" tags="" position="700,1250" size="100,100">&lt;span class=&quot;error&quot;&gt;Well, this seems to be an apartment.&lt;/span&gt;
 &lt;span class=&quot;error&quot;&gt;Just look to your left.&lt;/span&gt;
 
+&lt;span class=&quot;error&quot;&gt;The Crawl? Bigg City.&lt;/span&gt;
 &lt;span class=&quot;error&quot;&gt;The Scene? Bigg City Bungalows. Floor 2.&lt;/span&gt;
-&lt;span class=&quot;error&quot;&gt;The Zone? Apartment EE.&lt;/span&gt;
+&lt;span class=&quot;error&quot;&gt;The Area? Apartment EE.&lt;/span&gt;
 
 &lt;span class=&quot;error&quot;&gt;To my knowledge, back in The Crawl...&lt;/span&gt;
 &lt;span class=&quot;error&quot;&gt;There isn&#39;t actually a Floor E to this building?&lt;/span&gt;
